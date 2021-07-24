@@ -64,8 +64,9 @@ namespace AutoClickerCS
         public enum KeyEventF
         {
             KeyDown = 0x0000,
-            //ExtendedKey = 0x0001, TODO
+            ExtendedKey = 0x0001,
             KeyUp = 0x0002,
+            Click,
             Unicode = 0x0004,
             Scancode = 0x0008
         }
@@ -90,6 +91,14 @@ namespace AutoClickerCS
             //XUp = 0x0100
         }
 
+        public enum KeyType
+        {
+            KeyDown = 0x0000,
+            //ExtendedKey = 0x0001, TODO
+            KeyUp = 0x0002,
+            Click
+        }
+
         public enum KeyboardKeys
         {
             ESC = 1,
@@ -103,45 +112,45 @@ namespace AutoClickerCS
             Key8 = 9,
             Key9 = 10,
             Key0 = 11,
-            MinusSing = 12,
+            MinusSign = 12,
             EqualSign = 13,
             BackSpace = 14,
             Tab = 15,
-            Q = 16,
-            W = 17,
-            E = 18,
-            R = 19,
-            T = 20,
-            Y = 21,
-            U = 22,
-            I = 23,
-            O = 24,
-            P = 25,
+            q = 16,
+            w = 17,
+            e = 18,
+            r = 19,
+            t = 20,
+            y = 21,
+            u = 22,
+            i = 23,
+            o = 24,
+            p = 25,
             OpenBracket = 26,
             CloseBracket = 27,
             Enter = 28,
             CTRL = 29,
-            A = 30,
-            S = 31,
-            D = 32,
-            F = 33,
-            G = 34,
-            H = 35,
-            J = 36,
-            K = 37,
-            L = 38,
+            a = 30,
+            s = 31,
+            d = 32,
+            f = 33,
+            g = 34,
+            h = 35,
+            j = 36,
+            k = 37,
+            l = 38,
             Semicolon = 39,
             Apostrophe = 40,
             BackwardApostrophe = 41,
             LShift = 42,
             BackwardSlash = 43,
-            Z = 44,
-            X = 45,
-            C = 46,
-            V = 47,
-            B = 48,
-            N = 49,
-            M = 50,
+            z = 44,
+            x = 45,
+            c = 46,
+            v = 47,
+            b = 48,
+            n = 49,
+            m = 50,
             Comma = 51,
             Period = 52,
             ForwardSlash = 53,
@@ -175,6 +184,9 @@ namespace AutoClickerCS
             Num3 = 81,
             Ins  = 82,
             Del  = 83,
+            AltSysRq = 84,
+            F11 = 87,
+            F12 = 88
         }
 
         //TODO
@@ -187,7 +199,7 @@ namespace AutoClickerCS
         private static extern uint SendInput(uint nInputs, Input[] pInputs, int cbSize);
 
         [DllImport("user32.dll")]
-        private static extern IntPtr GetMessageExtraInfo();
+        public static extern IntPtr GetMessageExtraInfo();
 
         [DllImport("user32.dll")]
         private static extern bool GetCursorPos(out POINT lpPoint);

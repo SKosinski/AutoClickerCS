@@ -36,6 +36,10 @@ namespace AutoClickerCS
 
             inputDeviceComboBox.SelectedIndex = 0;
 
+            moveUpButton.Enabled = false;
+            moveDownButton.Enabled = false;
+            deleteButton.Enabled = false;
+
             inputTypeComboBox.DataSource = Enum.GetValues(typeof(InputSender.MouseEventF));
             keyComboBox.DataSource = Enum.GetValues(typeof(InputSender.KeyboardKeys));
 
@@ -86,17 +90,21 @@ namespace AutoClickerCS
                 //// Setting the cursor position RELATIVE to the current position
                 //InputSender.SendMouseInput(new InputSender.MouseInput[]
                 //{
-                //    new InputSender.MouseInput
-                //    {
-                //        dx = 100,
-                //        dy = 100,
-                //        dwFlags = (uint)InputSender.MouseEventF.Move
+                //new InputSender.MouseInput
+                //{
+                //    dx = 100,
+                //    dy = 100,
+                //    dwFlags = (uint)InputSender.MouseEventF.Move
 
-                //    }
+                //}
                 //});
 
-                Thread.Sleep(1000);
-                InputSender.ClickKey(17); // W
+
+                //-----------------------
+                //Thread.Sleep(1000);
+                //InputSender.ClickKey(17); // W
+                //-----------------------
+
                 //InputSender.SendMouseInput(new InputSender.MouseInput[]
                 //{
                 //    new InputSender.MouseInput
@@ -108,6 +116,126 @@ namespace AutoClickerCS
                 //        dwFlags = (uint)InputSender.MouseEventF.LeftUp
                 //    }
                 //});
+
+                foreach (string command in commands)
+                {
+                    if (isCancelled)
+                        return;
+
+                    char[] separators = { ' ', ';'};
+
+                    string[] splitCommand = command.Split(separators);
+
+                    int repeat = 1;
+
+                    if(splitCommand[0]!="Time") //if command = time, instruction should be executed once and then go to next instruction
+                    {
+                        repeat = Convert.ToInt32(splitCommand[splitCommand.Length - 1]);
+                    }
+
+                    for(int j = 0; j < repeat; j++) //number of key repeat is at the end of the string
+                    {
+                        switch (splitCommand[0])
+                        {
+                            case "Mouse":
+                                switch (splitCommand[1])
+                                {
+                                    //fall through
+                                    case "Move":
+                                        InputSender.SendMouseInput(new InputSender.MouseInput[]
+                                        {
+                                        new InputSender.MouseInput
+                                        {
+                                            dx = Convert.ToInt32(splitCommand[2]),
+                                            dy = Convert.ToInt32(splitCommand[3]),
+                                            dwFlags = (uint)InputSender.MouseEventF.Move
+                                        }
+                                        });
+                                        break;
+                                    case "SetPosition":
+                                        InputSender.SetCursorPosition(Convert.ToInt32(splitCommand[2]), Convert.ToInt32(splitCommand[3]));
+                                        break;
+                                    default:
+                                        InputSender.MouseEventF mouseKeyCode = (InputSender.MouseEventF)Enum.Parse(typeof(InputSender.MouseEventF), splitCommand[1]);
+                                        InputSender.SendMouseInput(new InputSender.MouseInput[]
+                                        {
+                                        new InputSender.MouseInput
+                                        {
+                                            dwFlags = (uint)mouseKeyCode
+                                        }
+                                        });
+                                        break;
+                                }
+                                break;
+
+                            case "Keyboard":
+                                InputSender.KeyboardKeys keyboardKeyCode = (InputSender.KeyboardKeys)Enum.Parse(typeof(InputSender.KeyboardKeys), splitCommand[2]);
+                                switch (splitCommand[1])
+                                {
+                                    case "KeyDown":
+                                        InputSender.SendKeyboardInput(new InputSender.KeyboardInput[]
+                                        {
+                                                    new InputSender.KeyboardInput
+                                                    {
+                                                        wScan = (ushort)keyboardKeyCode,
+                                                        dwFlags = (uint)(InputSender.KeyEventF.KeyDown | InputSender.KeyEventF.Scancode),
+                                                        dwExtraInfo = InputSender.GetMessageExtraInfo()
+                                                    }
+                                        });
+                                        break;
+                                    case "KeyUp":
+                                        InputSender.SendKeyboardInput(new InputSender.KeyboardInput[]
+                                        {
+                                                    new InputSender.KeyboardInput
+                                                    {
+                                                        wScan = (ushort)keyboardKeyCode,
+                                                        dwFlags = (uint)(InputSender.KeyEventF.KeyUp | InputSender.KeyEventF.Scancode),
+                                                        dwExtraInfo = InputSender.GetMessageExtraInfo()
+                                                    }
+                                        });
+
+                                        break;
+                                    case "Click":
+                                        InputSender.SendKeyboardInput(new InputSender.KeyboardInput[]
+                                        {
+                                        new InputSender.KeyboardInput
+                                        {
+                                            wScan = 0xe0,
+                                            dwFlags = (uint)(InputSender.KeyEventF.ExtendedKey | InputSender.KeyEventF.Scancode),
+                                        },
+                                        new InputSender.KeyboardInput
+                                        {
+                                            wScan = 0x38,
+                                            dwFlags = (uint)(InputSender.KeyEventF.ExtendedKey | InputSender.KeyEventF.Scancode)
+                                        }
+                                        });
+                                        InputSender.ClickKey((ushort)keyboardKeyCode);
+                                        InputSender.SendKeyboardInput(new InputSender.KeyboardInput[]
+                                        {
+                                        new InputSender.KeyboardInput
+                                        {
+                                            wScan = 0xe0,
+                                            dwFlags = (uint)(InputSender.KeyEventF.ExtendedKey | InputSender.KeyEventF.KeyUp | InputSender.KeyEventF.Scancode),
+                                        },
+                                        new InputSender.KeyboardInput
+                                        {
+                                            wScan = 0x38,
+                                            dwFlags = (uint)(InputSender.KeyEventF.ExtendedKey | InputSender.KeyEventF.KeyUp | InputSender.KeyEventF.Scancode),
+                                        }
+                                        });
+                                        break;
+                                }
+                                break;
+                            case "Time":
+                                Thread.Sleep(Convert.ToInt32(splitCommand[1]));
+                                break;
+                        }
+
+                        if (isCancelled)
+                            return;
+                    }
+                }
+                
                 if (isCancelled)
                     return;
             }            
@@ -136,7 +264,7 @@ namespace AutoClickerCS
             string newInterval = (sender as TextBox).Text;
             newInterval = newInterval.Trim();
             //int newIntervalInt = Convert.ToInt32(newInterval);
-            if (IsDigitsOnly(newInterval))
+            if (IsDigitsOnly(newInterval) && newInterval != "")
             {
                 intervals = Convert.ToInt32(newInterval);
             }
@@ -176,7 +304,7 @@ namespace AutoClickerCS
             }
             else if ((sender as ComboBox).SelectedItem.ToString() == "Keyboard")
             {
-                inputTypeComboBox.DataSource = Enum.GetValues(typeof(InputSender.KeyEventF));
+                inputTypeComboBox.DataSource = Enum.GetValues(typeof(InputSender.KeyType));
             }
 
         }
@@ -200,15 +328,17 @@ namespace AutoClickerCS
                 yTextBox.Visible = false;
             }
 
-            if ((sender as ComboBox).SelectedItem.ToString() == "KeyUp" || (sender as ComboBox).SelectedItem.ToString() == "KeyDown" || (sender as ComboBox).SelectedItem.ToString() == "ExtendedKey")
+            if ((sender as ComboBox).SelectedItem.ToString() == "KeyUp" || (sender as ComboBox).SelectedItem.ToString() == "KeyDown" || (sender as ComboBox).SelectedItem.ToString() == "Click")
             {
                 keyLabel.Visible = true;
                 keyComboBox.Visible = true;
+                onScreenKeyboardButton.Visible = true;
             }
             else
             {
                 keyLabel.Visible = false;
                 keyComboBox.Visible = false;
+                onScreenKeyboardButton.Visible = false;
             }
         }
 
@@ -216,31 +346,37 @@ namespace AutoClickerCS
         {
             string command = "";
 
-            command += inputDeviceComboBox.SelectedItem.ToString() + ", " + inputTypeComboBox.SelectedItem.ToString();
+            command += inputDeviceComboBox.SelectedItem.ToString() + " " + inputTypeComboBox.SelectedItem.ToString();
 
             if (inputTypeComboBox.SelectedItem.ToString() == "Move" || inputTypeComboBox.SelectedItem.ToString() == "SetPosition")
             {
-                command += ", " + xTextBox.Text.ToString() + ", " + yTextBox.Text.ToString() + ";";
+                command += " " + xTextBox.Text.ToString() + " " + yTextBox.Text.ToString();
             }
-            else if (inputTypeComboBox.SelectedItem.ToString() == "KeyUp" || inputTypeComboBox.SelectedItem.ToString() == "KeyDown" || inputTypeComboBox.SelectedItem.ToString() == "ExtendedKey")
+            else if (inputTypeComboBox.SelectedItem.ToString() == "KeyUp" || inputTypeComboBox.SelectedItem.ToString() == "KeyDown" || inputTypeComboBox.SelectedItem.ToString() == "Click")
             {
-                command += ", " + keyComboBox.SelectedItem.ToString() + ";";
+                command += " " + keyComboBox.SelectedItem.ToString();
+            }
+
+            if (IsDigitsOnly(repeatTextBox.Text.ToString()) && repeatTextBox.Text.ToString() != "")
+            {
+                command += " " + repeatTextBox.Text.ToString();
             }
             else
             {
-                command += ";";
+                command += " " + 1;
             }
 
+
             commands.Add(command);
-            commandListBox.Items.Add(command);
+            refresh_commandListBox();
 
         }
 
         private void addTimeButton_Click(object sender, EventArgs e)
         {
-            string command = "Time " + timeTextBox.Text.ToString() +"ms;";
+            string command = "Time " + timeTextBox.Text.ToString();
             commands.Add(command);
-            commandListBox.Items.Add(command);
+            refresh_commandListBox();
         }
 
         private void refresh_commandListBox()
@@ -250,6 +386,27 @@ namespace AutoClickerCS
             {
                 commandListBox.Items.Add(command);
             }
+
+            if(commands.Count>1)
+            {
+                moveUpButton.Enabled = true;
+                moveDownButton.Enabled = true;
+            }
+            else
+            {
+                moveUpButton.Enabled = false;
+                moveDownButton.Enabled = false;
+            }
+
+            if (commands.Count > 0)
+            {
+                deleteButton.Enabled = true;
+            }
+            else
+            {
+                deleteButton.Enabled = false;
+            }
+
         }
 
         private void moveUpButton_Click(object sender, EventArgs e)
@@ -263,6 +420,7 @@ namespace AutoClickerCS
                 commands[index] = tmpString;
             }
             refresh_commandListBox();
+            commandListBox.SelectedIndex = index - 1;
         }
         private void moveDownButton_Click(object sender, EventArgs e)
         {
@@ -275,6 +433,7 @@ namespace AutoClickerCS
                 commands[index] = tmpString;
             }
             refresh_commandListBox();
+            commandListBox.SelectedIndex = index + 1;
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -282,6 +441,12 @@ namespace AutoClickerCS
             int index = commandListBox.SelectedIndex;
             commands.RemoveAt(index);
             refresh_commandListBox();
+        }
+
+        private void onScreenKeyboardButton_Click(object sender, EventArgs e)
+        {
+            KeyboardForm keyboardForm = new KeyboardForm();
+            keyboardForm.ShowDialog();
         }
     }
 }

@@ -40,6 +40,9 @@ namespace AutoClickerCS
             this.inputDeviceLabel = new System.Windows.Forms.Label();
             this.inputTypeLabel = new System.Windows.Forms.Label();
             this.inputGroupBox = new System.Windows.Forms.GroupBox();
+            this.onScreenKeyboardButton = new System.Windows.Forms.Button();
+            this.repeatLabel = new System.Windows.Forms.Label();
+            this.repeatTextBox = new System.Windows.Forms.TextBox();
             this.keyComboBox = new System.Windows.Forms.ComboBox();
             this.yLabel = new System.Windows.Forms.Label();
             this.yTextBox = new System.Windows.Forms.TextBox();
@@ -74,7 +77,7 @@ namespace AutoClickerCS
             // 
             // startButton
             // 
-            this.startButton.Location = new System.Drawing.Point(216, 393);
+            this.startButton.Location = new System.Drawing.Point(612, 349);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(90, 51);
             this.startButton.TabIndex = 2;
@@ -84,7 +87,7 @@ namespace AutoClickerCS
             // 
             // stopButton
             // 
-            this.stopButton.Location = new System.Drawing.Point(312, 393);
+            this.stopButton.Location = new System.Drawing.Point(708, 349);
             this.stopButton.Name = "stopButton";
             this.stopButton.Size = new System.Drawing.Size(90, 51);
             this.stopButton.TabIndex = 3;
@@ -124,7 +127,7 @@ namespace AutoClickerCS
             // 
             this.addKeyButton.Location = new System.Drawing.Point(327, 19);
             this.addKeyButton.Name = "addKeyButton";
-            this.addKeyButton.Size = new System.Drawing.Size(40, 63);
+            this.addKeyButton.Size = new System.Drawing.Size(40, 130);
             this.addKeyButton.TabIndex = 7;
             this.addKeyButton.Text = "+";
             this.addKeyButton.UseVisualStyleBackColor = true;
@@ -177,6 +180,9 @@ namespace AutoClickerCS
             // 
             // inputGroupBox
             // 
+            this.inputGroupBox.Controls.Add(this.onScreenKeyboardButton);
+            this.inputGroupBox.Controls.Add(this.repeatLabel);
+            this.inputGroupBox.Controls.Add(this.repeatTextBox);
             this.inputGroupBox.Controls.Add(this.keyComboBox);
             this.inputGroupBox.Controls.Add(this.yLabel);
             this.inputGroupBox.Controls.Add(this.yTextBox);
@@ -190,10 +196,37 @@ namespace AutoClickerCS
             this.inputGroupBox.Controls.Add(this.addKeyButton);
             this.inputGroupBox.Location = new System.Drawing.Point(12, 12);
             this.inputGroupBox.Name = "inputGroupBox";
-            this.inputGroupBox.Size = new System.Drawing.Size(390, 129);
+            this.inputGroupBox.Size = new System.Drawing.Size(390, 168);
             this.inputGroupBox.TabIndex = 13;
             this.inputGroupBox.TabStop = false;
             this.inputGroupBox.Text = "Input";
+            // 
+            // onScreenKeyboardButton
+            // 
+            this.onScreenKeyboardButton.Location = new System.Drawing.Point(251, 88);
+            this.onScreenKeyboardButton.Name = "onScreenKeyboardButton";
+            this.onScreenKeyboardButton.Size = new System.Drawing.Size(70, 28);
+            this.onScreenKeyboardButton.TabIndex = 21;
+            this.onScreenKeyboardButton.Text = "Open";
+            this.onScreenKeyboardButton.UseVisualStyleBackColor = true;
+            this.onScreenKeyboardButton.Click += new System.EventHandler(this.onScreenKeyboardButton_Click);
+            // 
+            // repeatLabel
+            // 
+            this.repeatLabel.AutoSize = true;
+            this.repeatLabel.Location = new System.Drawing.Point(24, 125);
+            this.repeatLabel.Name = "repeatLabel";
+            this.repeatLabel.Size = new System.Drawing.Size(56, 20);
+            this.repeatLabel.TabIndex = 20;
+            this.repeatLabel.Text = "Repeat";
+            // 
+            // repeatTextBox
+            // 
+            this.repeatTextBox.Location = new System.Drawing.Point(154, 122);
+            this.repeatTextBox.Name = "repeatTextBox";
+            this.repeatTextBox.Size = new System.Drawing.Size(167, 27);
+            this.repeatTextBox.TabIndex = 19;
+            this.repeatTextBox.Text = "1";
             // 
             // keyComboBox
             // 
@@ -205,13 +238,13 @@ namespace AutoClickerCS
             "Keyboard"});
             this.keyComboBox.Location = new System.Drawing.Point(154, 88);
             this.keyComboBox.Name = "keyComboBox";
-            this.keyComboBox.Size = new System.Drawing.Size(167, 28);
+            this.keyComboBox.Size = new System.Drawing.Size(91, 28);
             this.keyComboBox.TabIndex = 18;
             // 
             // yLabel
             // 
             this.yLabel.AutoSize = true;
-            this.yLabel.Location = new System.Drawing.Point(186, 96);
+            this.yLabel.Location = new System.Drawing.Point(184, 91);
             this.yLabel.Name = "yLabel";
             this.yLabel.Size = new System.Drawing.Size(20, 20);
             this.yLabel.TabIndex = 16;
@@ -220,7 +253,7 @@ namespace AutoClickerCS
             // 
             // yTextBox
             // 
-            this.yTextBox.Location = new System.Drawing.Point(212, 93);
+            this.yTextBox.Location = new System.Drawing.Point(210, 88);
             this.yTextBox.Name = "yTextBox";
             this.yTextBox.Size = new System.Drawing.Size(111, 27);
             this.yTextBox.TabIndex = 15;
@@ -240,7 +273,7 @@ namespace AutoClickerCS
             // xLabel
             // 
             this.xLabel.AutoSize = true;
-            this.xLabel.Location = new System.Drawing.Point(27, 96);
+            this.xLabel.Location = new System.Drawing.Point(25, 91);
             this.xLabel.Name = "xLabel";
             this.xLabel.Size = new System.Drawing.Size(21, 20);
             this.xLabel.TabIndex = 14;
@@ -249,7 +282,7 @@ namespace AutoClickerCS
             // 
             // xTextBox
             // 
-            this.xTextBox.Location = new System.Drawing.Point(54, 93);
+            this.xTextBox.Location = new System.Drawing.Point(52, 88);
             this.xTextBox.Name = "xTextBox";
             this.xTextBox.Size = new System.Drawing.Size(111, 27);
             this.xTextBox.TabIndex = 13;
@@ -261,7 +294,7 @@ namespace AutoClickerCS
             this.timeBreakGroupBox.Controls.Add(this.timeLabel);
             this.timeBreakGroupBox.Controls.Add(this.addTimeButton);
             this.timeBreakGroupBox.Controls.Add(this.timeTextBox);
-            this.timeBreakGroupBox.Location = new System.Drawing.Point(12, 147);
+            this.timeBreakGroupBox.Location = new System.Drawing.Point(12, 186);
             this.timeBreakGroupBox.Name = "timeBreakGroupBox";
             this.timeBreakGroupBox.Size = new System.Drawing.Size(390, 85);
             this.timeBreakGroupBox.TabIndex = 14;
@@ -273,7 +306,7 @@ namespace AutoClickerCS
             this.intervalsGroupBox.Controls.Add(this.inifiniteCheckBox);
             this.intervalsGroupBox.Controls.Add(this.intervalsTextBox);
             this.intervalsGroupBox.Controls.Add(this.intervalsLabel);
-            this.intervalsGroupBox.Location = new System.Drawing.Point(12, 238);
+            this.intervalsGroupBox.Location = new System.Drawing.Point(12, 277);
             this.intervalsGroupBox.Name = "intervalsGroupBox";
             this.intervalsGroupBox.Size = new System.Drawing.Size(390, 58);
             this.intervalsGroupBox.TabIndex = 15;
@@ -319,7 +352,7 @@ namespace AutoClickerCS
             this.ShortcutsLabel.Controls.Add(this.plusLabel1);
             this.ShortcutsLabel.Controls.Add(this.stopShortcutComboBox1);
             this.ShortcutsLabel.Controls.Add(this.startShortcutLabel);
-            this.ShortcutsLabel.Location = new System.Drawing.Point(12, 302);
+            this.ShortcutsLabel.Location = new System.Drawing.Point(12, 341);
             this.ShortcutsLabel.Name = "ShortcutsLabel";
             this.ShortcutsLabel.Size = new System.Drawing.Size(390, 85);
             this.ShortcutsLabel.TabIndex = 16;
@@ -414,7 +447,7 @@ namespace AutoClickerCS
             // 
             // exportButton
             // 
-            this.exportButton.Location = new System.Drawing.Point(114, 393);
+            this.exportButton.Location = new System.Drawing.Point(510, 349);
             this.exportButton.Name = "exportButton";
             this.exportButton.Size = new System.Drawing.Size(96, 51);
             this.exportButton.TabIndex = 18;
@@ -423,7 +456,7 @@ namespace AutoClickerCS
             // 
             // importButton
             // 
-            this.importButton.Location = new System.Drawing.Point(12, 393);
+            this.importButton.Location = new System.Drawing.Point(408, 349);
             this.importButton.Name = "importButton";
             this.importButton.Size = new System.Drawing.Size(96, 51);
             this.importButton.TabIndex = 17;
@@ -434,10 +467,6 @@ namespace AutoClickerCS
             // 
             this.commandListBox.FormattingEnabled = true;
             this.commandListBox.ItemHeight = 20;
-            this.commandListBox.Items.AddRange(new object[] {
-            "Mouse LeftDown",
-            "Keyboard KeyDown Key1",
-            "Time 10ms"});
             this.commandListBox.Location = new System.Drawing.Point(408, 12);
             this.commandListBox.Name = "commandListBox";
             this.commandListBox.Size = new System.Drawing.Size(325, 304);
@@ -477,7 +506,7 @@ namespace AutoClickerCS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(822, 536);
+            this.ClientSize = new System.Drawing.Size(820, 435);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.moveDownButton);
             this.Controls.Add(this.moveUpButton);
@@ -543,6 +572,9 @@ namespace AutoClickerCS
         private System.Windows.Forms.Button moveUpButton;
         private System.Windows.Forms.Button moveDownButton;
         private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Label repeatLabel;
+        private System.Windows.Forms.TextBox repeatTextBox;
+        private System.Windows.Forms.Button onScreenKeyboardButton;
     }
 }
 
