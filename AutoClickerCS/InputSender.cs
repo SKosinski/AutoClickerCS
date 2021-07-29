@@ -85,8 +85,8 @@ namespace AutoClickerCS
             MiddleDown = 0x0020,
             MiddleUp = 0x0040,
             //VirtualDesk = 0x4000,
-            WheelScroll = 0x0800,
-            WheelTilt = 0x01000
+            //WheelScroll = 0x0800,
+            //WheelTilt = 0x01000
             //XDown = 0x0080,
             //XUp = 0x0100
         }
@@ -97,11 +97,12 @@ namespace AutoClickerCS
             //ExtendedKey = 0x0001, TODO
             KeyUp = 0x0002,
             Click
+
         }
 
         public enum KeyboardKeys
         {
-            ESC = 1,
+            ESC = 1,          
             Key1 = 2,
             Key2 = 3,
             Key3 = 4,
@@ -114,8 +115,8 @@ namespace AutoClickerCS
             Key0 = 11,
             MinusSign = 12,
             EqualSign = 13,
-            BackSpace = 14,
-            Tab = 15,
+            BCKSP = 14,
+            TAB = 15,
             q = 16,
             w = 17,
             e = 18,
@@ -129,7 +130,7 @@ namespace AutoClickerCS
             OpenBracket = 26,
             CloseBracket = 27,
             Enter = 28,
-            CTRL = 29,
+            LCTRL = 29,
             a = 30,
             s = 31,
             d = 32,
@@ -142,7 +143,7 @@ namespace AutoClickerCS
             Semicolon = 39,
             Apostrophe = 40,
             BackwardApostrophe = 41,
-            LShift = 42,
+            LSHIFT = 42,
             BackwardSlash = 43,
             z = 44,
             x = 45,
@@ -154,11 +155,11 @@ namespace AutoClickerCS
             Comma = 51,
             Period = 52,
             ForwardSlash = 53,
-            RShift = 54,
-            PrtSc = 55,
-            Alt = 56,
-            Space = 57,
-            Caps = 58,
+            RSHIFT = 54,
+            PRTS = 55,
+            LALT = 56,
+            SPACE = 57,
+            CAPS = 58,
             F1 = 59,
             F2 = 60,
             F3 = 61,
@@ -169,31 +170,32 @@ namespace AutoClickerCS
             F8 = 66,
             F9 = 67,
             F10 = 68,
-            Num = 69,
-            Scroll = 70,
-            Num7 = 71,
-            Num8 = 72,
-            Num9 = 73,
+            NUM = 69,
+            SCR = 70,
+            N7 = 71,
+            N8 = 72,
+            N9 = 73,
             NumMinus = 74,
-            Num4 = 75,
-            Num5 = 76,
-            Num6 = 77,
+            N4 = 75,
+            N5 = 76,
+            N6 = 77,
             NumPlus = 78,
-            Num1 = 79,
-            Num2 = 80,
-            Num3 = 81,
-            Ins  = 82,
-            Del  = 83,
-            AltSysRq = 84,
+            N1 = 79,
+            N2 = 80,
+            N3 = 81,
+            INS  = 82,
+            DEL  = 83,
             F11 = 87,
             F12 = 88
         }
 
-        //TODO
-        //public enum SpecialKeyboardKeys
-        //{
-
-        //}
+        public enum SpecialKeyboardKeys
+        {
+            NEnter = 28,
+            RCTRL = 29,
+            NumMinus = 53,
+            RALT = 56,
+        }
 
         [DllImport("user32.dll", SetLastError = true)]
         private static extern uint SendInput(uint nInputs, Input[] pInputs, int cbSize);

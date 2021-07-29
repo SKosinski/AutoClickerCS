@@ -104,7 +104,6 @@ namespace AutoClickerCS
             this.button73 = new System.Windows.Forms.Button();
             this.button74 = new System.Windows.Forms.Button();
             this.button75 = new System.Windows.Forms.Button();
-            this.button76 = new System.Windows.Forms.Button();
             this.button77 = new System.Windows.Forms.Button();
             this.button78 = new System.Windows.Forms.Button();
             this.button79 = new System.Windows.Forms.Button();
@@ -133,6 +132,16 @@ namespace AutoClickerCS
             this.button102 = new System.Windows.Forms.Button();
             this.button103 = new System.Windows.Forms.Button();
             this.button104 = new System.Windows.Forms.Button();
+            this.repeatLabel = new System.Windows.Forms.Label();
+            this.repeatTextBox = new System.Windows.Forms.TextBox();
+            this.addKeyButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.shiftRadioButton = new System.Windows.Forms.RadioButton();
+            this.raltRadioButton = new System.Windows.Forms.RadioButton();
+            this.lctrlRadioButton = new System.Windows.Forms.RadioButton();
+            this.inputTypeLabel = new System.Windows.Forms.Label();
+            this.inputTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.defaultRadioButton = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // button1
@@ -285,9 +294,9 @@ namespace AutoClickerCS
             // button17
             // 
             this.button17.Font = new System.Drawing.Font("Segoe UI", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button17.Location = new System.Drawing.Point(758, 48);
+            this.button17.Location = new System.Drawing.Point(748, 48);
             this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(34, 28);
+            this.button17.Size = new System.Drawing.Size(42, 28);
             this.button17.TabIndex = 16;
             this.button17.Text = "NUM";
             this.button17.UseVisualStyleBackColor = true;
@@ -295,9 +304,9 @@ namespace AutoClickerCS
             // button18
             // 
             this.button18.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button18.Location = new System.Drawing.Point(838, 48);
+            this.button18.Location = new System.Drawing.Point(848, 48);
             this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(34, 28);
+            this.button18.Size = new System.Drawing.Size(46, 28);
             this.button18.TabIndex = 17;
             this.button18.Text = "*";
             this.button18.UseVisualStyleBackColor = true;
@@ -305,9 +314,9 @@ namespace AutoClickerCS
             // button19
             // 
             this.button19.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button19.Location = new System.Drawing.Point(798, 48);
+            this.button19.Location = new System.Drawing.Point(796, 48);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(34, 28);
+            this.button19.Size = new System.Drawing.Size(46, 28);
             this.button19.TabIndex = 17;
             this.button19.Text = "/";
             this.button19.UseVisualStyleBackColor = true;
@@ -315,129 +324,129 @@ namespace AutoClickerCS
             // button20
             // 
             this.button20.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button20.Location = new System.Drawing.Point(878, 48);
+            this.button20.Location = new System.Drawing.Point(900, 47);
             this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(34, 28);
+            this.button20.Size = new System.Drawing.Size(40, 28);
             this.button20.TabIndex = 18;
-            this.button20.Text = "-";
+            this.button20.Text = "N-";
             this.button20.UseVisualStyleBackColor = true;
             // 
             // button21
             // 
             this.button21.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button21.Location = new System.Drawing.Point(878, 82);
+            this.button21.Location = new System.Drawing.Point(900, 81);
             this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(34, 62);
+            this.button21.Size = new System.Drawing.Size(40, 62);
             this.button21.TabIndex = 22;
-            this.button21.Text = "+";
+            this.button21.Text = "N+";
             this.button21.UseVisualStyleBackColor = true;
             // 
             // button22
             // 
             this.button22.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button22.Location = new System.Drawing.Point(798, 82);
+            this.button22.Location = new System.Drawing.Point(796, 82);
             this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(34, 28);
+            this.button22.Size = new System.Drawing.Size(46, 28);
             this.button22.TabIndex = 20;
-            this.button22.Text = "8";
+            this.button22.Text = "N8";
             this.button22.UseVisualStyleBackColor = true;
             // 
             // button23
             // 
             this.button23.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button23.Location = new System.Drawing.Point(838, 82);
+            this.button23.Location = new System.Drawing.Point(848, 82);
             this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(34, 28);
+            this.button23.Size = new System.Drawing.Size(46, 28);
             this.button23.TabIndex = 21;
-            this.button23.Text = "9";
+            this.button23.Text = "N9";
             this.button23.UseVisualStyleBackColor = true;
             // 
             // button24
             // 
             this.button24.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button24.Location = new System.Drawing.Point(758, 82);
+            this.button24.Location = new System.Drawing.Point(748, 82);
             this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(34, 28);
+            this.button24.Size = new System.Drawing.Size(42, 28);
             this.button24.TabIndex = 19;
-            this.button24.Text = "7";
+            this.button24.Text = "N7";
             this.button24.UseVisualStyleBackColor = true;
             // 
             // button26
             // 
             this.button26.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button26.Location = new System.Drawing.Point(798, 116);
+            this.button26.Location = new System.Drawing.Point(796, 116);
             this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(34, 28);
+            this.button26.Size = new System.Drawing.Size(46, 28);
             this.button26.TabIndex = 24;
-            this.button26.Text = "5";
+            this.button26.Text = "N5";
             this.button26.UseVisualStyleBackColor = true;
             // 
             // button27
             // 
             this.button27.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button27.Location = new System.Drawing.Point(838, 116);
+            this.button27.Location = new System.Drawing.Point(848, 116);
             this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(34, 28);
+            this.button27.Size = new System.Drawing.Size(46, 28);
             this.button27.TabIndex = 25;
-            this.button27.Text = "6";
+            this.button27.Text = "N6";
             this.button27.UseVisualStyleBackColor = true;
             // 
             // button28
             // 
             this.button28.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button28.Location = new System.Drawing.Point(758, 116);
+            this.button28.Location = new System.Drawing.Point(748, 116);
             this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(34, 28);
+            this.button28.Size = new System.Drawing.Size(42, 28);
             this.button28.TabIndex = 23;
-            this.button28.Text = "4";
+            this.button28.Text = "N4";
             this.button28.UseVisualStyleBackColor = true;
             // 
             // button29
             // 
-            this.button29.Font = new System.Drawing.Font("Segoe UI", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button29.Location = new System.Drawing.Point(878, 150);
+            this.button29.Font = new System.Drawing.Font("Segoe UI", 4.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button29.Location = new System.Drawing.Point(900, 149);
             this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(34, 62);
+            this.button29.Size = new System.Drawing.Size(40, 62);
             this.button29.TabIndex = 30;
-            this.button29.Text = "Enter";
+            this.button29.Text = "NEnter";
             this.button29.UseVisualStyleBackColor = true;
             // 
             // button30
             // 
             this.button30.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button30.Location = new System.Drawing.Point(798, 150);
+            this.button30.Location = new System.Drawing.Point(796, 150);
             this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(34, 28);
+            this.button30.Size = new System.Drawing.Size(46, 28);
             this.button30.TabIndex = 28;
-            this.button30.Text = "2";
+            this.button30.Text = "N2";
             this.button30.UseVisualStyleBackColor = true;
             // 
             // button31
             // 
             this.button31.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button31.Location = new System.Drawing.Point(838, 150);
+            this.button31.Location = new System.Drawing.Point(848, 150);
             this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(34, 28);
+            this.button31.Size = new System.Drawing.Size(46, 28);
             this.button31.TabIndex = 29;
-            this.button31.Text = "3";
+            this.button31.Text = "N3";
             this.button31.UseVisualStyleBackColor = true;
             // 
             // button32
             // 
             this.button32.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button32.Location = new System.Drawing.Point(758, 150);
+            this.button32.Location = new System.Drawing.Point(748, 150);
             this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(34, 28);
+            this.button32.Size = new System.Drawing.Size(42, 28);
             this.button32.TabIndex = 27;
-            this.button32.Text = "1";
+            this.button32.Text = "N1";
             this.button32.UseVisualStyleBackColor = true;
             // 
             // button35
             // 
             this.button35.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button35.Location = new System.Drawing.Point(838, 184);
+            this.button35.Location = new System.Drawing.Point(848, 184);
             this.button35.Name = "button35";
-            this.button35.Size = new System.Drawing.Size(34, 28);
+            this.button35.Size = new System.Drawing.Size(46, 28);
             this.button35.TabIndex = 33;
             this.button35.Text = ",";
             this.button35.UseVisualStyleBackColor = true;
@@ -445,9 +454,9 @@ namespace AutoClickerCS
             // button36
             // 
             this.button36.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button36.Location = new System.Drawing.Point(758, 184);
+            this.button36.Location = new System.Drawing.Point(748, 184);
             this.button36.Name = "button36";
-            this.button36.Size = new System.Drawing.Size(74, 28);
+            this.button36.Size = new System.Drawing.Size(94, 28);
             this.button36.TabIndex = 31;
             this.button36.Text = "0";
             this.button36.UseVisualStyleBackColor = true;
@@ -458,7 +467,7 @@ namespace AutoClickerCS
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(34, 28);
             this.button25.TabIndex = 34;
-            this.button25.Text = "`";
+            this.button25.Text = "~`";
             this.button25.UseVisualStyleBackColor = true;
             // 
             // button33
@@ -864,22 +873,12 @@ namespace AutoClickerCS
             // button75
             // 
             this.button75.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button75.Location = new System.Drawing.Point(509, 150);
+            this.button75.Location = new System.Drawing.Point(470, 150);
             this.button75.Name = "button75";
-            this.button75.Size = new System.Drawing.Size(63, 28);
+            this.button75.Size = new System.Drawing.Size(102, 28);
             this.button75.TabIndex = 87;
             this.button75.Text = "RSHIFT";
             this.button75.UseVisualStyleBackColor = true;
-            // 
-            // button76
-            // 
-            this.button76.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button76.Location = new System.Drawing.Point(470, 150);
-            this.button76.Name = "button76";
-            this.button76.Size = new System.Drawing.Size(34, 28);
-            this.button76.TabIndex = 86;
-            this.button76.Text = "\'";
-            this.button76.UseVisualStyleBackColor = true;
             // 
             // button77
             // 
@@ -1058,7 +1057,7 @@ namespace AutoClickerCS
             this.button100.Name = "button100";
             this.button100.Size = new System.Drawing.Size(58, 28);
             this.button100.TabIndex = 88;
-            this.button100.Text = "LCTRTL";
+            this.button100.Text = "LCTRL";
             this.button100.UseVisualStyleBackColor = true;
             // 
             // button89
@@ -1161,11 +1160,122 @@ namespace AutoClickerCS
             this.button104.Text = "UP";
             this.button104.UseVisualStyleBackColor = true;
             // 
+            // repeatLabel
+            // 
+            this.repeatLabel.AutoSize = true;
+            this.repeatLabel.Location = new System.Drawing.Point(959, 49);
+            this.repeatLabel.Name = "repeatLabel";
+            this.repeatLabel.Size = new System.Drawing.Size(59, 20);
+            this.repeatLabel.TabIndex = 112;
+            this.repeatLabel.Text = "Repeat:";
+            // 
+            // repeatTextBox
+            // 
+            this.repeatTextBox.Location = new System.Drawing.Point(1047, 46);
+            this.repeatTextBox.Name = "repeatTextBox";
+            this.repeatTextBox.Size = new System.Drawing.Size(167, 27);
+            this.repeatTextBox.TabIndex = 111;
+            this.repeatTextBox.Text = "1";
+            // 
+            // addKeyButton
+            // 
+            this.addKeyButton.Location = new System.Drawing.Point(959, 168);
+            this.addKeyButton.Name = "addKeyButton";
+            this.addKeyButton.Size = new System.Drawing.Size(255, 43);
+            this.addKeyButton.TabIndex = 113;
+            this.addKeyButton.Text = "Add Key";
+            this.addKeyButton.UseVisualStyleBackColor = true;
+            this.addKeyButton.Click += new System.EventHandler(this.addKeyButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Location = new System.Drawing.Point(950, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1, 206);
+            this.label1.TabIndex = 114;
+            // 
+            // shiftRadioButton
+            // 
+            this.shiftRadioButton.AutoSize = true;
+            this.shiftRadioButton.Location = new System.Drawing.Point(1090, 83);
+            this.shiftRadioButton.Name = "shiftRadioButton";
+            this.shiftRadioButton.Size = new System.Drawing.Size(85, 24);
+            this.shiftRadioButton.TabIndex = 115;
+            this.shiftRadioButton.TabStop = true;
+            this.shiftRadioButton.Text = "LeftShift";
+            this.shiftRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // raltRadioButton
+            // 
+            this.raltRadioButton.AutoSize = true;
+            this.raltRadioButton.Location = new System.Drawing.Point(1090, 111);
+            this.raltRadioButton.Name = "raltRadioButton";
+            this.raltRadioButton.Size = new System.Drawing.Size(84, 24);
+            this.raltRadioButton.TabIndex = 116;
+            this.raltRadioButton.TabStop = true;
+            this.raltRadioButton.Text = "RightAlt";
+            this.raltRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // lctrlRadioButton
+            // 
+            this.lctrlRadioButton.AutoSize = true;
+            this.lctrlRadioButton.Location = new System.Drawing.Point(1090, 141);
+            this.lctrlRadioButton.Name = "lctrlRadioButton";
+            this.lctrlRadioButton.Size = new System.Drawing.Size(104, 24);
+            this.lctrlRadioButton.TabIndex = 117;
+            this.lctrlRadioButton.TabStop = true;
+            this.lctrlRadioButton.Text = "LeftControl";
+            this.lctrlRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // inputTypeLabel
+            // 
+            this.inputTypeLabel.AutoSize = true;
+            this.inputTypeLabel.Location = new System.Drawing.Point(959, 15);
+            this.inputTypeLabel.Name = "inputTypeLabel";
+            this.inputTypeLabel.Size = new System.Drawing.Size(43, 20);
+            this.inputTypeLabel.TabIndex = 119;
+            this.inputTypeLabel.Text = "Type:";
+            // 
+            // inputTypeComboBox
+            // 
+            this.inputTypeComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.inputTypeComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
+            this.inputTypeComboBox.FormattingEnabled = true;
+            this.inputTypeComboBox.Items.AddRange(new object[] {
+            "Mouse",
+            "Keyboard"});
+            this.inputTypeComboBox.Location = new System.Drawing.Point(1047, 12);
+            this.inputTypeComboBox.Name = "inputTypeComboBox";
+            this.inputTypeComboBox.Size = new System.Drawing.Size(167, 28);
+            this.inputTypeComboBox.TabIndex = 118;
+            // 
+            // defaultRadioButton
+            // 
+            this.defaultRadioButton.AutoSize = true;
+            this.defaultRadioButton.Location = new System.Drawing.Point(986, 111);
+            this.defaultRadioButton.Name = "defaultRadioButton";
+            this.defaultRadioButton.Size = new System.Drawing.Size(66, 24);
+            this.defaultRadioButton.TabIndex = 120;
+            this.defaultRadioButton.TabStop = true;
+            this.defaultRadioButton.Text = "None";
+            this.defaultRadioButton.UseVisualStyleBackColor = true;
+            // 
             // KeyboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(920, 230);
+            this.ClientSize = new System.Drawing.Size(1226, 219);
+            this.Controls.Add(this.defaultRadioButton);
+            this.Controls.Add(this.inputTypeLabel);
+            this.Controls.Add(this.inputTypeComboBox);
+            this.Controls.Add(this.lctrlRadioButton);
+            this.Controls.Add(this.raltRadioButton);
+            this.Controls.Add(this.shiftRadioButton);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.addKeyButton);
+            this.Controls.Add(this.repeatLabel);
+            this.Controls.Add(this.repeatTextBox);
             this.Controls.Add(this.button104);
             this.Controls.Add(this.button101);
             this.Controls.Add(this.button102);
@@ -1184,7 +1294,6 @@ namespace AutoClickerCS
             this.Controls.Add(this.button99);
             this.Controls.Add(this.button100);
             this.Controls.Add(this.button75);
-            this.Controls.Add(this.button76);
             this.Controls.Add(this.button77);
             this.Controls.Add(this.button78);
             this.Controls.Add(this.button79);
@@ -1273,6 +1382,7 @@ namespace AutoClickerCS
             this.Name = "KeyboardForm";
             this.Text = "KeyboardForm";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1353,7 +1463,6 @@ namespace AutoClickerCS
         private System.Windows.Forms.Button button73;
         private System.Windows.Forms.Button button74;
         private System.Windows.Forms.Button button75;
-        private System.Windows.Forms.Button button76;
         private System.Windows.Forms.Button button77;
         private System.Windows.Forms.Button button78;
         private System.Windows.Forms.Button button79;
@@ -1382,5 +1491,15 @@ namespace AutoClickerCS
         private System.Windows.Forms.Button button102;
         private System.Windows.Forms.Button button103;
         private System.Windows.Forms.Button button104;
+        private System.Windows.Forms.Label repeatLabel;
+        private System.Windows.Forms.TextBox repeatTextBox;
+        private System.Windows.Forms.Button addKeyButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RadioButton shiftRadioButton;
+        private System.Windows.Forms.RadioButton raltRadioButton;
+        private System.Windows.Forms.RadioButton lctrlRadioButton;
+        private System.Windows.Forms.Label inputTypeLabel;
+        private System.Windows.Forms.ComboBox inputTypeComboBox;
+        private System.Windows.Forms.RadioButton defaultRadioButton;
     }
 }
