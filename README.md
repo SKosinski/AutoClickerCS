@@ -12,5 +12,7 @@ Choose KeyDown/KeyUp/Click
 7. Import/Export commands.
 
 InputSender class has been created by Bojidar Qnkov on https://www.codeproject.com/script/Articles/ViewDownloads.aspx?aid=5264831
+
 HotkeyService class has been created by AaronLS https://stackoverflow.com/questions/2450373/set-global-hotkeys-using-c-sharp
+
 Both classes were modified to fit application's needs.
