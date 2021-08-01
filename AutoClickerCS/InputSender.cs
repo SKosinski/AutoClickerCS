@@ -7,7 +7,8 @@ namespace AutoClickerCS
 {
     class InputSender
     {
-        //from: https://www.codeproject.com/script/Articles/ViewDownloads.aspx?aid=5264831
+        //Author: Bojidar Qnkov
+        //Taken from from: https://www.codeproject.com/script/Articles/ViewDownloads.aspx?aid=5264831
         #region Imports/Structs/Enums
         [StructLayout(LayoutKind.Sequential)]
         public struct KeyboardInput
@@ -91,15 +92,16 @@ namespace AutoClickerCS
             //XUp = 0x0100
         }
 
+        [Flags]
         public enum KeyType
         {
             KeyDown = 0x0000,
             //ExtendedKey = 0x0001, TODO
             KeyUp = 0x0002,
             Click
-
         }
 
+        [Flags]
         public enum KeyboardKeys
         {
             ESC = 1,          
@@ -156,7 +158,7 @@ namespace AutoClickerCS
             Period = 52,
             ForwardSlash = 53,
             RSHIFT = 54,
-            PRTS = 55,
+            Asterisk = 55,
             LALT = 56,
             SPACE = 57,
             CAPS = 58,
@@ -183,18 +185,32 @@ namespace AutoClickerCS
             N1 = 79,
             N2 = 80,
             N3 = 81,
-            INS  = 82,
-            DEL  = 83,
+            N0  = 82,
+            NDOT  = 83,
             F11 = 87,
             F12 = 88
         }
 
+        [Flags]
         public enum SpecialKeyboardKeys
         {
             NEnter = 28,
             RCTRL = 29,
             NumMinus = 53,
             RALT = 56,
+            HOME = 71,
+            UP = 72,
+            PGUP = 73,
+            LEFT = 75,
+            RIGHT = 77,
+            END = 79,
+            DOWN = 80,
+            PGDN = 81,
+            INS = 82,
+            DEL = 83,
+            LWIN = 91,
+            RWIN = 92,
+            APP = 93
         }
 
         [DllImport("user32.dll", SetLastError = true)]
