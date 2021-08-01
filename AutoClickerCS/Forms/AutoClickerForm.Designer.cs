@@ -362,7 +362,7 @@ namespace AutoClickerCS
             this.saveButton.TabIndex = 21;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
-            this.saveButton.Click += new System.EventHandler(this.button1_Click);
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // startShortcutComboBox2
             // 
@@ -523,7 +523,6 @@ namespace AutoClickerCS
             this.Controls.Add(this.startButton);
             this.Name = "AutoClickerForm";
             this.Text = "AutoClicker";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.mouseInputGroupBox.ResumeLayout(false);
             this.mouseInputGroupBox.PerformLayout();
             this.timeBreakGroupBox.ResumeLayout(false);
@@ -559,8 +558,6 @@ namespace AutoClickerCS
         private System.Windows.Forms.Label startShortcutLabel;
         private System.Windows.Forms.ComboBox startShortcutComboBox2;
         private System.Windows.Forms.ComboBox stopShortcutComboBox2;
-        private System.Windows.Forms.Label plusLabel1;
-        private System.Windows.Forms.Label plusLabel2;
         private System.Windows.Forms.Label yLabel;
         private System.Windows.Forms.TextBox yTextBox;
         private System.Windows.Forms.Label xLabel;
@@ -574,7 +571,6 @@ namespace AutoClickerCS
         private System.Windows.Forms.Label repeatLabel;
         private System.Windows.Forms.TextBox repeatTextBox;
         private System.Windows.Forms.Button onScreenKeyboardButton;
-        private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.GroupBox keyboardInputgroupBox;
         private System.Windows.Forms.Label currYDynamicLabel;
         private System.Windows.Forms.Label currXDynamicLabel;

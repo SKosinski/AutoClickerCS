@@ -8,7 +8,8 @@ namespace AutoClickerCS
 {
     class HotkeyService
     {
-        // from https://stackoverflow.com/questions/2450373/set-global-hotkeys-using-c-sharp
+        //Author: AaronLS
+        //Taken from https://stackoverflow.com/questions/2450373/set-global-hotkeys-using-c-sharp
         public sealed class KeyboardHook : IDisposable
         {
             // Registers a hot key with Windows.

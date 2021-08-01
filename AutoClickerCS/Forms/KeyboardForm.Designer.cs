@@ -142,6 +142,7 @@ namespace AutoClickerCS
             this.inputTypeLabel = new System.Windows.Forms.Label();
             this.inputTypeComboBox = new System.Windows.Forms.ComboBox();
             this.defaultRadioButton = new System.Windows.Forms.RadioButton();
+            this.button76 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -443,12 +444,12 @@ namespace AutoClickerCS
             // 
             // button35
             // 
-            this.button35.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button35.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button35.Location = new System.Drawing.Point(848, 184);
             this.button35.Name = "button35";
             this.button35.Size = new System.Drawing.Size(46, 28);
             this.button35.TabIndex = 33;
-            this.button35.Text = ",";
+            this.button35.Text = "NDOT";
             this.button35.UseVisualStyleBackColor = true;
             // 
             // button36
@@ -458,7 +459,7 @@ namespace AutoClickerCS
             this.button36.Name = "button36";
             this.button36.Size = new System.Drawing.Size(94, 28);
             this.button36.TabIndex = 31;
-            this.button36.Text = "0";
+            this.button36.Text = "N0";
             this.button36.UseVisualStyleBackColor = true;
             // 
             // button25
@@ -467,7 +468,7 @@ namespace AutoClickerCS
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(34, 28);
             this.button25.TabIndex = 34;
-            this.button25.Text = "~`";
+            this.button25.Text = "`";
             this.button25.UseVisualStyleBackColor = true;
             // 
             // button33
@@ -1002,18 +1003,18 @@ namespace AutoClickerCS
             // 
             // button95
             // 
-            this.button95.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button95.Location = new System.Drawing.Point(456, 183);
+            this.button95.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button95.Location = new System.Drawing.Point(404, 184);
             this.button95.Name = "button95";
             this.button95.Size = new System.Drawing.Size(46, 28);
             this.button95.TabIndex = 93;
-            this.button95.Text = "WIN";
+            this.button95.Text = "RWIN";
             this.button95.UseVisualStyleBackColor = true;
             // 
             // button96
             // 
             this.button96.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button96.Location = new System.Drawing.Point(392, 183);
+            this.button96.Location = new System.Drawing.Point(340, 184);
             this.button96.Name = "button96";
             this.button96.Size = new System.Drawing.Size(58, 28);
             this.button96.TabIndex = 92;
@@ -1023,9 +1024,9 @@ namespace AutoClickerCS
             // button97
             // 
             this.button97.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button97.Location = new System.Drawing.Point(188, 183);
+            this.button97.Location = new System.Drawing.Point(188, 184);
             this.button97.Name = "button97";
-            this.button97.Size = new System.Drawing.Size(197, 28);
+            this.button97.Size = new System.Drawing.Size(146, 28);
             this.button97.TabIndex = 91;
             this.button97.Text = "SPACE";
             this.button97.UseVisualStyleBackColor = true;
@@ -1042,12 +1043,12 @@ namespace AutoClickerCS
             // 
             // button99
             // 
-            this.button99.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button99.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button99.Location = new System.Drawing.Point(76, 184);
             this.button99.Name = "button99";
             this.button99.Size = new System.Drawing.Size(51, 28);
             this.button99.TabIndex = 89;
-            this.button99.Text = "WIN";
+            this.button99.Text = "LWIN";
             this.button99.UseVisualStyleBackColor = true;
             // 
             // button100
@@ -1067,7 +1068,7 @@ namespace AutoClickerCS
             this.button89.Name = "button89";
             this.button89.Size = new System.Drawing.Size(47, 28);
             this.button89.TabIndex = 103;
-            this.button89.Text = "PG UP";
+            this.button89.Text = "PGUP";
             this.button89.UseVisualStyleBackColor = true;
             // 
             // button90
@@ -1097,7 +1098,7 @@ namespace AutoClickerCS
             this.button92.Name = "button92";
             this.button92.Size = new System.Drawing.Size(47, 28);
             this.button92.TabIndex = 106;
-            this.button92.Text = "PG DN";
+            this.button92.Text = "PGDN";
             this.button92.UseVisualStyleBackColor = true;
             // 
             // button93
@@ -1261,11 +1262,22 @@ namespace AutoClickerCS
             this.defaultRadioButton.Text = "None";
             this.defaultRadioButton.UseVisualStyleBackColor = true;
             // 
+            // button76
+            // 
+            this.button76.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button76.Location = new System.Drawing.Point(456, 184);
+            this.button76.Name = "button76";
+            this.button76.Size = new System.Drawing.Size(46, 28);
+            this.button76.TabIndex = 121;
+            this.button76.Text = "APP";
+            this.button76.UseVisualStyleBackColor = true;
+            // 
             // KeyboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1226, 219);
+            this.Controls.Add(this.button76);
             this.Controls.Add(this.defaultRadioButton);
             this.Controls.Add(this.inputTypeLabel);
             this.Controls.Add(this.inputTypeComboBox);
@@ -1501,5 +1513,6 @@ namespace AutoClickerCS
         private System.Windows.Forms.Label inputTypeLabel;
         private System.Windows.Forms.ComboBox inputTypeComboBox;
         private System.Windows.Forms.RadioButton defaultRadioButton;
+        private System.Windows.Forms.Button button76;
     }
 }

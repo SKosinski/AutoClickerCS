@@ -6,6 +6,7 @@ namespace AutoClickerCS
 {
     static class Tools
     {
+        //check if string includes only digits
         public static bool IsDigitsOnly(string str)
         {
             foreach (char c in str)

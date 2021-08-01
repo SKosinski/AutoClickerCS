@@ -14,6 +14,7 @@ namespace AutoClickerCS
         CommandCreator commandCreator;
         Object disabledKey;
 
+        //Dictionary to change symbol to name for commands
         Dictionary<string, string> keyNames = new Dictionary<string, string>
         {
             ["1"] = "Key1",
@@ -37,6 +38,7 @@ namespace AutoClickerCS
             [","] = "Comma",
             ["."] = "Period",
             ["/"] = "ForwardSlash",
+            ["*"] = "Asterisk",
             ["N-"] = "NumMinus",
             ["N+"] = "NumPlus",
         };
@@ -50,8 +52,11 @@ namespace AutoClickerCS
             defaultRadioButton.Checked = true;
 
             inputTypeComboBox.DataSource = Enum.GetValues(typeof(InputSender.KeyType));
+            inputTypeComboBox.SelectedIndex = 2;
 
             var addControls = Controls.Find("addKeyButton", true);
+            
+            //Add behavior for all keyboard keys in form
             foreach (var c in Controls)
             {
                 if(c is Button)
@@ -77,7 +82,28 @@ namespace AutoClickerCS
 
         private void addKeyButton_Click(object sender, EventArgs e)
         {
-            string command = "";  
+            string command = "";
+
+            //those two buttons need special behavior
+            //no option for KeyDown/KeyUp/Click here.
+            if (currentKey == "PRTS" || currentKey == "PAUS")
+            {
+                command = "Keyboard " + currentKey;
+                
+                if (Tools.IsDigitsOnly(repeatTextBox.Text.ToString()) && repeatTextBox.Text.ToString() != "")
+                {
+                    command += " " + repeatTextBox.Text.ToString();
+                }
+                else
+                {
+                    command += " " + 1;
+                }
+
+                commandCreator.addCommand(command);
+
+                return;
+            }
+
 
             if (shiftRadioButton.Checked)
             {
@@ -136,11 +162,6 @@ namespace AutoClickerCS
                 command = "Keyboard KeyUp LCTRL 1";
                 commandCreator.addCommand(command);
             }
-        }
-
-        private void KeyboardForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

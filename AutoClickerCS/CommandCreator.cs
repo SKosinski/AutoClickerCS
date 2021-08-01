@@ -22,6 +22,7 @@ namespace AutoClickerCS
             autoClickerForm.refresh_commandListBox();
         }
 
+        //move command up on the list
         public bool moveCommandUp(int index)
         {
             string tmpString;
@@ -36,6 +37,7 @@ namespace AutoClickerCS
             return false;
         }
 
+        //move command down on the list
         public bool moveCommandDown(int index)
         {
             string tmpString;
@@ -72,6 +74,8 @@ namespace AutoClickerCS
 
         public void importCommandsFromTxt(string fileName)
         {
+            commands.Clear();
+            
             string line = "";
 
             using (StreamReader sr = new StreamReader(fileName))
