@@ -43,17 +43,20 @@ namespace AutoClickerCS
 
             inputTypeComboBox.DataSource = Enum.GetValues(typeof(InputSender.MouseEventF));
 
-            startShortcutComboBox1.DataSource = Enum.GetValues(typeof(HotkeyService.ModifierKeys));
-            startShortcutComboBox2.DataSource = Enum.GetValues(typeof(Keys));
-            stopShortcutComboBox1.DataSource = Enum.GetValues(typeof(HotkeyService.ModifierKeys));
-            stopShortcutComboBox2.DataSource = Enum.GetValues(typeof(Keys));
-            startShortcutComboBox1.SelectedIndex = 1;
-            startShortcutComboBox2.SelectedIndex = 107;
+            startProgramComboBox1.DataSource = Enum.GetValues(typeof(HotkeyService.ModifierKeys));
+            startProgramComboBox2.DataSource = Enum.GetValues(typeof(Keys));
+            startProgramComboBox1.SelectedIndex = 1;
+            startProgramComboBox2.SelectedIndex = 107;
 
+            stopProgramComboBox1.DataSource = Enum.GetValues(typeof(HotkeyService.ModifierKeys));
+            stopProgramComboBox2.DataSource = Enum.GetValues(typeof(Keys));
+            stopProgramComboBox1.SelectedIndex = 1;
+            stopProgramComboBox2.SelectedIndex = 108;
 
-            stopShortcutComboBox1.SelectedIndex = 1;
-            stopShortcutComboBox2.SelectedIndex = 108;
-
+            captureMouseComboBox1.DataSource = Enum.GetValues(typeof(HotkeyService.ModifierKeys));
+            captureMouseComboBox2.DataSource = Enum.GetValues(typeof(Keys));
+            captureMouseComboBox1.SelectedIndex = 0;
+            captureMouseComboBox2.SelectedIndex = 32;
             UpdateHotkeys();
         }
 
@@ -121,13 +124,21 @@ namespace AutoClickerCS
 
         private void addKeyButton_Click(object sender, EventArgs e)
         {
+            if(Tools.IsDigitsOnly(xTextBox.Text.ToString()) && Tools.IsDigitsOnly(yTextBox.Text.ToString()))
+            {
+                AddMouseButton(xTextBox.Text.ToString(), yTextBox.Text.ToString());
+            }
+        }
+
+        private void AddMouseButton(string X, string Y)
+        {
             string command = "";
 
             command += "Mouse " + inputTypeComboBox.SelectedItem.ToString();
 
             if (inputTypeComboBox.SelectedItem.ToString() == "Move" || inputTypeComboBox.SelectedItem.ToString() == "SetPosition")
             {
-                command += " " + xTextBox.Text.ToString() + " " + yTextBox.Text.ToString();
+                command += " " + X + " " + Y;
             }
 
             if (Tools.IsDigitsOnly(repeatTextBox.Text.ToString()) && repeatTextBox.Text.ToString() != "")
@@ -180,13 +191,25 @@ namespace AutoClickerCS
         //hotkey service
         void hook_KeyPressed(object sender, KeyPressedEventArgs e)
         {
-            if (e.Modifier.ToString() == startShortcutComboBox1.SelectedItem.ToString() && e.Key.ToString() == startShortcutComboBox2.SelectedItem.ToString())
+            if (e.Modifier.ToString() == startProgramComboBox1.SelectedItem.ToString() && e.Key.ToString() == startProgramComboBox2.SelectedItem.ToString())
             {
                 autoClicker.Start();
             }
-            else if (e.Modifier.ToString() == stopShortcutComboBox1.SelectedItem.ToString() && e.Key.ToString() == stopShortcutComboBox2.SelectedItem.ToString())
+            else if (e.Modifier.ToString() == stopProgramComboBox1.SelectedItem.ToString() && e.Key.ToString() == stopProgramComboBox2.SelectedItem.ToString())
             {
                 autoClicker.Stop();
+            }
+            else if (e.Modifier.ToString() == captureMouseComboBox1.SelectedItem.ToString() && e.Key.ToString() == captureMouseComboBox2.SelectedItem.ToString())
+            {
+                AddMouseButton(currXDynamicLabel.Text, currYDynamicLabel.Text);
+            }
+            else if (e.Modifier.ToString() == startRecordingComboBox1.SelectedItem.ToString() && e.Key.ToString() == startRecordingComboBox2.SelectedItem.ToString())
+            {
+                //TODO
+            }
+            else if (e.Modifier.ToString() == stopRecordingComboBox1.SelectedItem.ToString() && e.Key.ToString() == stopRecordingComboBox2.SelectedItem.ToString())
+            {
+                //TODO
             }
         }
 
@@ -194,17 +217,38 @@ namespace AutoClickerCS
         {
             hook.DisposeHotkeys();
 
-            if (startShortcutComboBox1.Items.Count != 0 && startShortcutComboBox2.Items.Count != 0)
+            if (startProgramComboBox1.Items.Count != 0 && startProgramComboBox2.Items.Count != 0)
             {
-                var key1 = Enum.Parse(typeof(HotkeyService.ModifierKeys), startShortcutComboBox1.Text.ToString());
-                var key2 = Enum.Parse(typeof(Keys), startShortcutComboBox2.Text.ToString());
+                var key1 = Enum.Parse(typeof(HotkeyService.ModifierKeys), startProgramComboBox1.Text.ToString());
+                var key2 = Enum.Parse(typeof(Keys), startProgramComboBox2.Text.ToString());
                 hook.RegisterHotKey((HotkeyService.ModifierKeys)key1, (Keys)key2);
             }
 
-            if (stopShortcutComboBox1.Items.Count != 0 && stopShortcutComboBox2.Items.Count != 0)
+            if (stopProgramComboBox1.Items.Count != 0 && stopProgramComboBox2.Items.Count != 0)
             {
-                var key1 = Enum.Parse(typeof(HotkeyService.ModifierKeys), stopShortcutComboBox1.Text.ToString());
-                var key2 = Enum.Parse(typeof(Keys), stopShortcutComboBox2.Text.ToString());
+                var key1 = Enum.Parse(typeof(HotkeyService.ModifierKeys), stopProgramComboBox1.Text.ToString());
+                var key2 = Enum.Parse(typeof(Keys), stopProgramComboBox2.Text.ToString());
+                hook.RegisterHotKey((HotkeyService.ModifierKeys)key1, (Keys)key2);
+            }
+
+            if (captureMouseComboBox1.Items.Count != 0 && captureMouseComboBox2.Items.Count != 0)
+            {
+                var key1 = Enum.Parse(typeof(HotkeyService.ModifierKeys), captureMouseComboBox1.Text.ToString());
+                var key2 = Enum.Parse(typeof(Keys), captureMouseComboBox2.Text.ToString());
+                hook.RegisterHotKey((HotkeyService.ModifierKeys)key1, (Keys)key2);
+            }
+
+            if (startRecordingComboBox1.Items.Count != 0 && startRecordingComboBox2.Items.Count != 0)
+            {
+                var key1 = Enum.Parse(typeof(HotkeyService.ModifierKeys), startRecordingComboBox1.Text.ToString());
+                var key2 = Enum.Parse(typeof(Keys), startRecordingComboBox2.Text.ToString());
+                hook.RegisterHotKey((HotkeyService.ModifierKeys)key1, (Keys)key2);
+            }
+
+            if (stopRecordingComboBox1.Items.Count != 0 && stopRecordingComboBox2.Items.Count != 0)
+            {
+                var key1 = Enum.Parse(typeof(HotkeyService.ModifierKeys), stopRecordingComboBox1.Text.ToString());
+                var key2 = Enum.Parse(typeof(Keys), stopRecordingComboBox2.Text.ToString());
                 hook.RegisterHotKey((HotkeyService.ModifierKeys)key1, (Keys)key2);
             }
         }

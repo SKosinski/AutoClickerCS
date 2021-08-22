@@ -38,6 +38,7 @@ namespace AutoClickerCS
             this.timeLabel = new System.Windows.Forms.Label();
             this.inputTypeLabel = new System.Windows.Forms.Label();
             this.mouseInputGroupBox = new System.Windows.Forms.GroupBox();
+            this.AddCurPosLabel = new System.Windows.Forms.Label();
             this.currYDynamicLabel = new System.Windows.Forms.Label();
             this.currXDynamicLabel = new System.Windows.Forms.Label();
             this.currentYlabel = new System.Windows.Forms.Label();
@@ -56,11 +57,11 @@ namespace AutoClickerCS
             this.intervalsLabel = new System.Windows.Forms.Label();
             this.ShortcutsLabel = new System.Windows.Forms.GroupBox();
             this.saveButton = new System.Windows.Forms.Button();
-            this.startShortcutComboBox2 = new System.Windows.Forms.ComboBox();
-            this.stopShortcutComboBox2 = new System.Windows.Forms.ComboBox();
-            this.startShortcutComboBox1 = new System.Windows.Forms.ComboBox();
+            this.startProgramComboBox2 = new System.Windows.Forms.ComboBox();
+            this.stopProgramComboBox2 = new System.Windows.Forms.ComboBox();
+            this.startProgramComboBox1 = new System.Windows.Forms.ComboBox();
             this.stopShortcutLabel = new System.Windows.Forms.Label();
-            this.stopShortcutComboBox1 = new System.Windows.Forms.ComboBox();
+            this.stopProgramComboBox1 = new System.Windows.Forms.ComboBox();
             this.startShortcutLabel = new System.Windows.Forms.Label();
             this.exportButton = new System.Windows.Forms.Button();
             this.importButton = new System.Windows.Forms.Button();
@@ -70,6 +71,15 @@ namespace AutoClickerCS
             this.deleteButton = new System.Windows.Forms.Button();
             this.keyboardInputgroupBox = new System.Windows.Forms.GroupBox();
             this.deleteAllButton = new System.Windows.Forms.Button();
+            this.captureMouseComboBox2 = new System.Windows.Forms.ComboBox();
+            this.CaptureMouseLabel = new System.Windows.Forms.Label();
+            this.captureMouseComboBox1 = new System.Windows.Forms.ComboBox();
+            this.startRecordingComboBox2 = new System.Windows.Forms.ComboBox();
+            this.StartRecordingLabel = new System.Windows.Forms.Label();
+            this.startRecordingComboBox1 = new System.Windows.Forms.ComboBox();
+            this.stopRecordingComboBox2 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.stopRecordingComboBox1 = new System.Windows.Forms.ComboBox();
             this.mouseInputGroupBox.SuspendLayout();
             this.timeBreakGroupBox.SuspendLayout();
             this.intervalsGroupBox.SuspendLayout();
@@ -79,7 +89,7 @@ namespace AutoClickerCS
             // 
             // startButton
             // 
-            this.startButton.Location = new System.Drawing.Point(612, 479);
+            this.startButton.Location = new System.Drawing.Point(611, 503);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(96, 76);
             this.startButton.TabIndex = 2;
@@ -89,7 +99,7 @@ namespace AutoClickerCS
             // 
             // stopButton
             // 
-            this.stopButton.Location = new System.Drawing.Point(712, 479);
+            this.stopButton.Location = new System.Drawing.Point(711, 503);
             this.stopButton.Name = "stopButton";
             this.stopButton.Size = new System.Drawing.Size(96, 76);
             this.stopButton.TabIndex = 3;
@@ -159,6 +169,7 @@ namespace AutoClickerCS
             // 
             // mouseInputGroupBox
             // 
+            this.mouseInputGroupBox.Controls.Add(this.AddCurPosLabel);
             this.mouseInputGroupBox.Controls.Add(this.currYDynamicLabel);
             this.mouseInputGroupBox.Controls.Add(this.currXDynamicLabel);
             this.mouseInputGroupBox.Controls.Add(this.currentYlabel);
@@ -174,10 +185,19 @@ namespace AutoClickerCS
             this.mouseInputGroupBox.Controls.Add(this.xTextBox);
             this.mouseInputGroupBox.Location = new System.Drawing.Point(12, 12);
             this.mouseInputGroupBox.Name = "mouseInputGroupBox";
-            this.mouseInputGroupBox.Size = new System.Drawing.Size(390, 168);
+            this.mouseInputGroupBox.Size = new System.Drawing.Size(390, 195);
             this.mouseInputGroupBox.TabIndex = 13;
             this.mouseInputGroupBox.TabStop = false;
             this.mouseInputGroupBox.Text = "Mouse Input";
+            // 
+            // AddCurPosLabel
+            // 
+            this.AddCurPosLabel.AutoSize = true;
+            this.AddCurPosLabel.Location = new System.Drawing.Point(36, 163);
+            this.AddCurPosLabel.Name = "AddCurPosLabel";
+            this.AddCurPosLabel.Size = new System.Drawing.Size(312, 20);
+            this.AddCurPosLabel.TabIndex = 25;
+            this.AddCurPosLabel.Text = "Press Spacebar to add current mouse position";
             // 
             // currYDynamicLabel
             // 
@@ -289,7 +309,7 @@ namespace AutoClickerCS
             this.timeBreakGroupBox.Controls.Add(this.timeLabel);
             this.timeBreakGroupBox.Controls.Add(this.addTimeButton);
             this.timeBreakGroupBox.Controls.Add(this.timeTextBox);
-            this.timeBreakGroupBox.Location = new System.Drawing.Point(12, 315);
+            this.timeBreakGroupBox.Location = new System.Drawing.Point(12, 340);
             this.timeBreakGroupBox.Name = "timeBreakGroupBox";
             this.timeBreakGroupBox.Size = new System.Drawing.Size(390, 85);
             this.timeBreakGroupBox.TabIndex = 14;
@@ -301,7 +321,7 @@ namespace AutoClickerCS
             this.intervalsGroupBox.Controls.Add(this.infiniteCheckBox);
             this.intervalsGroupBox.Controls.Add(this.intervalsTextBox);
             this.intervalsGroupBox.Controls.Add(this.intervalsLabel);
-            this.intervalsGroupBox.Location = new System.Drawing.Point(12, 406);
+            this.intervalsGroupBox.Location = new System.Drawing.Point(12, 431);
             this.intervalsGroupBox.Name = "intervalsGroupBox";
             this.intervalsGroupBox.Size = new System.Drawing.Size(390, 58);
             this.intervalsGroupBox.TabIndex = 15;
@@ -339,16 +359,25 @@ namespace AutoClickerCS
             // 
             // ShortcutsLabel
             // 
+            this.ShortcutsLabel.Controls.Add(this.stopRecordingComboBox2);
+            this.ShortcutsLabel.Controls.Add(this.label3);
+            this.ShortcutsLabel.Controls.Add(this.stopRecordingComboBox1);
+            this.ShortcutsLabel.Controls.Add(this.startRecordingComboBox2);
+            this.ShortcutsLabel.Controls.Add(this.StartRecordingLabel);
+            this.ShortcutsLabel.Controls.Add(this.startRecordingComboBox1);
+            this.ShortcutsLabel.Controls.Add(this.captureMouseComboBox2);
+            this.ShortcutsLabel.Controls.Add(this.CaptureMouseLabel);
+            this.ShortcutsLabel.Controls.Add(this.captureMouseComboBox1);
             this.ShortcutsLabel.Controls.Add(this.saveButton);
-            this.ShortcutsLabel.Controls.Add(this.startShortcutComboBox2);
-            this.ShortcutsLabel.Controls.Add(this.stopShortcutComboBox2);
-            this.ShortcutsLabel.Controls.Add(this.startShortcutComboBox1);
+            this.ShortcutsLabel.Controls.Add(this.startProgramComboBox2);
+            this.ShortcutsLabel.Controls.Add(this.stopProgramComboBox2);
+            this.ShortcutsLabel.Controls.Add(this.startProgramComboBox1);
             this.ShortcutsLabel.Controls.Add(this.stopShortcutLabel);
-            this.ShortcutsLabel.Controls.Add(this.stopShortcutComboBox1);
+            this.ShortcutsLabel.Controls.Add(this.stopProgramComboBox1);
             this.ShortcutsLabel.Controls.Add(this.startShortcutLabel);
-            this.ShortcutsLabel.Location = new System.Drawing.Point(12, 470);
+            this.ShortcutsLabel.Location = new System.Drawing.Point(12, 495);
             this.ShortcutsLabel.Name = "ShortcutsLabel";
-            this.ShortcutsLabel.Size = new System.Drawing.Size(390, 85);
+            this.ShortcutsLabel.Size = new System.Drawing.Size(390, 199);
             this.ShortcutsLabel.TabIndex = 16;
             this.ShortcutsLabel.TabStop = false;
             this.ShortcutsLabel.Text = "Shortcuts";
@@ -358,73 +387,73 @@ namespace AutoClickerCS
             this.saveButton.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.saveButton.Location = new System.Drawing.Point(327, 20);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(40, 55);
+            this.saveButton.Size = new System.Drawing.Size(40, 164);
             this.saveButton.TabIndex = 21;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // startShortcutComboBox2
+            // startProgramComboBox2
             // 
-            this.startShortcutComboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.startShortcutComboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
-            this.startShortcutComboBox2.FormattingEnabled = true;
-            this.startShortcutComboBox2.Location = new System.Drawing.Point(241, 20);
-            this.startShortcutComboBox2.Name = "startShortcutComboBox2";
-            this.startShortcutComboBox2.Size = new System.Drawing.Size(80, 28);
-            this.startShortcutComboBox2.TabIndex = 19;
+            this.startProgramComboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.startProgramComboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
+            this.startProgramComboBox2.FormattingEnabled = true;
+            this.startProgramComboBox2.Location = new System.Drawing.Point(241, 20);
+            this.startProgramComboBox2.Name = "startProgramComboBox2";
+            this.startProgramComboBox2.Size = new System.Drawing.Size(80, 28);
+            this.startProgramComboBox2.TabIndex = 19;
             // 
-            // stopShortcutComboBox2
+            // stopProgramComboBox2
             // 
-            this.stopShortcutComboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.stopShortcutComboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
-            this.stopShortcutComboBox2.FormattingEnabled = true;
-            this.stopShortcutComboBox2.Location = new System.Drawing.Point(241, 47);
-            this.stopShortcutComboBox2.Name = "stopShortcutComboBox2";
-            this.stopShortcutComboBox2.Size = new System.Drawing.Size(80, 28);
-            this.stopShortcutComboBox2.TabIndex = 20;
+            this.stopProgramComboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.stopProgramComboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
+            this.stopProgramComboBox2.FormattingEnabled = true;
+            this.stopProgramComboBox2.Location = new System.Drawing.Point(241, 54);
+            this.stopProgramComboBox2.Name = "stopProgramComboBox2";
+            this.stopProgramComboBox2.Size = new System.Drawing.Size(80, 28);
+            this.stopProgramComboBox2.TabIndex = 20;
             // 
-            // startShortcutComboBox1
+            // startProgramComboBox1
             // 
-            this.startShortcutComboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.startShortcutComboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
-            this.startShortcutComboBox1.FormattingEnabled = true;
-            this.startShortcutComboBox1.Location = new System.Drawing.Point(154, 20);
-            this.startShortcutComboBox1.Name = "startShortcutComboBox1";
-            this.startShortcutComboBox1.Size = new System.Drawing.Size(79, 28);
-            this.startShortcutComboBox1.TabIndex = 5;
+            this.startProgramComboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.startProgramComboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
+            this.startProgramComboBox1.FormattingEnabled = true;
+            this.startProgramComboBox1.Location = new System.Drawing.Point(154, 20);
+            this.startProgramComboBox1.Name = "startProgramComboBox1";
+            this.startProgramComboBox1.Size = new System.Drawing.Size(79, 28);
+            this.startProgramComboBox1.TabIndex = 5;
             // 
             // stopShortcutLabel
             // 
             this.stopShortcutLabel.AutoSize = true;
-            this.stopShortcutLabel.Location = new System.Drawing.Point(25, 50);
+            this.stopShortcutLabel.Location = new System.Drawing.Point(25, 57);
             this.stopShortcutLabel.Name = "stopShortcutLabel";
-            this.stopShortcutLabel.Size = new System.Drawing.Size(100, 20);
+            this.stopShortcutLabel.Size = new System.Drawing.Size(105, 20);
             this.stopShortcutLabel.TabIndex = 12;
-            this.stopShortcutLabel.Text = "Stop shortcut:";
+            this.stopShortcutLabel.Text = "Stop program:";
             // 
-            // stopShortcutComboBox1
+            // stopProgramComboBox1
             // 
-            this.stopShortcutComboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.stopShortcutComboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
-            this.stopShortcutComboBox1.FormattingEnabled = true;
-            this.stopShortcutComboBox1.Location = new System.Drawing.Point(154, 47);
-            this.stopShortcutComboBox1.Name = "stopShortcutComboBox1";
-            this.stopShortcutComboBox1.Size = new System.Drawing.Size(79, 28);
-            this.stopShortcutComboBox1.TabIndex = 6;
+            this.stopProgramComboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.stopProgramComboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
+            this.stopProgramComboBox1.FormattingEnabled = true;
+            this.stopProgramComboBox1.Location = new System.Drawing.Point(154, 54);
+            this.stopProgramComboBox1.Name = "stopProgramComboBox1";
+            this.stopProgramComboBox1.Size = new System.Drawing.Size(79, 28);
+            this.stopProgramComboBox1.TabIndex = 6;
             // 
             // startShortcutLabel
             // 
             this.startShortcutLabel.AutoSize = true;
             this.startShortcutLabel.Location = new System.Drawing.Point(25, 23);
             this.startShortcutLabel.Name = "startShortcutLabel";
-            this.startShortcutLabel.Size = new System.Drawing.Size(100, 20);
+            this.startShortcutLabel.Size = new System.Drawing.Size(105, 20);
             this.startShortcutLabel.TabIndex = 11;
-            this.startShortcutLabel.Text = "Start shortcut:";
+            this.startShortcutLabel.Text = "Start program:";
             // 
             // exportButton
             // 
-            this.exportButton.Location = new System.Drawing.Point(510, 479);
+            this.exportButton.Location = new System.Drawing.Point(509, 503);
             this.exportButton.Name = "exportButton";
             this.exportButton.Size = new System.Drawing.Size(96, 76);
             this.exportButton.TabIndex = 18;
@@ -434,7 +463,7 @@ namespace AutoClickerCS
             // 
             // importButton
             // 
-            this.importButton.Location = new System.Drawing.Point(408, 479);
+            this.importButton.Location = new System.Drawing.Point(407, 503);
             this.importButton.Name = "importButton";
             this.importButton.Size = new System.Drawing.Size(96, 76);
             this.importButton.TabIndex = 17;
@@ -447,14 +476,14 @@ namespace AutoClickerCS
             this.commandListBox.FormattingEnabled = true;
             this.commandListBox.HorizontalScrollbar = true;
             this.commandListBox.ItemHeight = 20;
-            this.commandListBox.Location = new System.Drawing.Point(408, 20);
+            this.commandListBox.Location = new System.Drawing.Point(407, 20);
             this.commandListBox.Name = "commandListBox";
-            this.commandListBox.Size = new System.Drawing.Size(325, 444);
+            this.commandListBox.Size = new System.Drawing.Size(325, 464);
             this.commandListBox.TabIndex = 19;
             // 
             // moveUpButton
             // 
-            this.moveUpButton.Location = new System.Drawing.Point(737, 20);
+            this.moveUpButton.Location = new System.Drawing.Point(737, 29);
             this.moveUpButton.Name = "moveUpButton";
             this.moveUpButton.Size = new System.Drawing.Size(71, 106);
             this.moveUpButton.TabIndex = 20;
@@ -464,7 +493,7 @@ namespace AutoClickerCS
             // 
             // moveDownButton
             // 
-            this.moveDownButton.Location = new System.Drawing.Point(737, 132);
+            this.moveDownButton.Location = new System.Drawing.Point(737, 141);
             this.moveDownButton.Name = "moveDownButton";
             this.moveDownButton.Size = new System.Drawing.Size(71, 106);
             this.moveDownButton.TabIndex = 23;
@@ -474,7 +503,7 @@ namespace AutoClickerCS
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(737, 247);
+            this.deleteButton.Location = new System.Drawing.Point(737, 256);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(71, 106);
             this.deleteButton.TabIndex = 24;
@@ -485,7 +514,7 @@ namespace AutoClickerCS
             // keyboardInputgroupBox
             // 
             this.keyboardInputgroupBox.Controls.Add(this.onScreenKeyboardButton);
-            this.keyboardInputgroupBox.Location = new System.Drawing.Point(12, 188);
+            this.keyboardInputgroupBox.Location = new System.Drawing.Point(12, 213);
             this.keyboardInputgroupBox.Name = "keyboardInputgroupBox";
             this.keyboardInputgroupBox.Size = new System.Drawing.Size(390, 121);
             this.keyboardInputgroupBox.TabIndex = 26;
@@ -494,7 +523,7 @@ namespace AutoClickerCS
             // 
             // deleteAllButton
             // 
-            this.deleteAllButton.Location = new System.Drawing.Point(737, 359);
+            this.deleteAllButton.Location = new System.Drawing.Point(737, 368);
             this.deleteAllButton.Name = "deleteAllButton";
             this.deleteAllButton.Size = new System.Drawing.Size(71, 106);
             this.deleteAllButton.TabIndex = 27;
@@ -502,11 +531,98 @@ namespace AutoClickerCS
             this.deleteAllButton.UseVisualStyleBackColor = true;
             this.deleteAllButton.Click += new System.EventHandler(this.deleteAllButton_Click);
             // 
+            // captureMouseComboBox2
+            // 
+            this.captureMouseComboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.captureMouseComboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
+            this.captureMouseComboBox2.FormattingEnabled = true;
+            this.captureMouseComboBox2.Location = new System.Drawing.Point(241, 88);
+            this.captureMouseComboBox2.Name = "captureMouseComboBox2";
+            this.captureMouseComboBox2.Size = new System.Drawing.Size(80, 28);
+            this.captureMouseComboBox2.TabIndex = 24;
+            // 
+            // CaptureMouseLabel
+            // 
+            this.CaptureMouseLabel.AutoSize = true;
+            this.CaptureMouseLabel.Location = new System.Drawing.Point(25, 91);
+            this.CaptureMouseLabel.Name = "CaptureMouseLabel";
+            this.CaptureMouseLabel.Size = new System.Drawing.Size(112, 20);
+            this.CaptureMouseLabel.TabIndex = 23;
+            this.CaptureMouseLabel.Text = "Capture mouse:";
+            // 
+            // captureMouseComboBox1
+            // 
+            this.captureMouseComboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.captureMouseComboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
+            this.captureMouseComboBox1.FormattingEnabled = true;
+            this.captureMouseComboBox1.Location = new System.Drawing.Point(154, 88);
+            this.captureMouseComboBox1.Name = "captureMouseComboBox1";
+            this.captureMouseComboBox1.Size = new System.Drawing.Size(79, 28);
+            this.captureMouseComboBox1.TabIndex = 22;
+            // 
+            // startRecordingComboBox2
+            // 
+            this.startRecordingComboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.startRecordingComboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
+            this.startRecordingComboBox2.FormattingEnabled = true;
+            this.startRecordingComboBox2.Location = new System.Drawing.Point(241, 122);
+            this.startRecordingComboBox2.Name = "startRecordingComboBox2";
+            this.startRecordingComboBox2.Size = new System.Drawing.Size(80, 28);
+            this.startRecordingComboBox2.TabIndex = 27;
+            // 
+            // StartRecordingLabel
+            // 
+            this.StartRecordingLabel.AutoSize = true;
+            this.StartRecordingLabel.Location = new System.Drawing.Point(25, 125);
+            this.StartRecordingLabel.Name = "StartRecordingLabel";
+            this.StartRecordingLabel.Size = new System.Drawing.Size(115, 20);
+            this.StartRecordingLabel.TabIndex = 26;
+            this.StartRecordingLabel.Text = "Start Recording:";
+            // 
+            // startRecordingComboBox1
+            // 
+            this.startRecordingComboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.startRecordingComboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
+            this.startRecordingComboBox1.FormattingEnabled = true;
+            this.startRecordingComboBox1.Location = new System.Drawing.Point(154, 122);
+            this.startRecordingComboBox1.Name = "startRecordingComboBox1";
+            this.startRecordingComboBox1.Size = new System.Drawing.Size(79, 28);
+            this.startRecordingComboBox1.TabIndex = 25;
+            // 
+            // stopRecordingComboBox2
+            // 
+            this.stopRecordingComboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.stopRecordingComboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
+            this.stopRecordingComboBox2.FormattingEnabled = true;
+            this.stopRecordingComboBox2.Location = new System.Drawing.Point(241, 156);
+            this.stopRecordingComboBox2.Name = "stopRecordingComboBox2";
+            this.stopRecordingComboBox2.Size = new System.Drawing.Size(80, 28);
+            this.stopRecordingComboBox2.TabIndex = 30;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(25, 159);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(115, 20);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Stop Recording:";
+            // 
+            // stopRecordingComboBox1
+            // 
+            this.stopRecordingComboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.stopRecordingComboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
+            this.stopRecordingComboBox1.FormattingEnabled = true;
+            this.stopRecordingComboBox1.Location = new System.Drawing.Point(154, 156);
+            this.stopRecordingComboBox1.Name = "stopRecordingComboBox1";
+            this.stopRecordingComboBox1.Size = new System.Drawing.Size(79, 28);
+            this.stopRecordingComboBox1.TabIndex = 28;
+            // 
             // AutoClickerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(820, 561);
+            this.ClientSize = new System.Drawing.Size(820, 706);
             this.Controls.Add(this.deleteAllButton);
             this.Controls.Add(this.keyboardInputgroupBox);
             this.Controls.Add(this.deleteButton);
@@ -552,12 +668,12 @@ namespace AutoClickerCS
         private System.Windows.Forms.TextBox intervalsTextBox;
         private System.Windows.Forms.CheckBox infiniteCheckBox;
         private System.Windows.Forms.GroupBox ShortcutsLabel;
-        private System.Windows.Forms.ComboBox startShortcutComboBox1;
+        private System.Windows.Forms.ComboBox startProgramComboBox1;
         private System.Windows.Forms.Label stopShortcutLabel;
-        private System.Windows.Forms.ComboBox stopShortcutComboBox1;
+        private System.Windows.Forms.ComboBox stopProgramComboBox1;
         private System.Windows.Forms.Label startShortcutLabel;
-        private System.Windows.Forms.ComboBox startShortcutComboBox2;
-        private System.Windows.Forms.ComboBox stopShortcutComboBox2;
+        private System.Windows.Forms.ComboBox startProgramComboBox2;
+        private System.Windows.Forms.ComboBox stopProgramComboBox2;
         private System.Windows.Forms.Label yLabel;
         private System.Windows.Forms.TextBox yTextBox;
         private System.Windows.Forms.Label xLabel;
@@ -578,6 +694,16 @@ namespace AutoClickerCS
         private System.Windows.Forms.Label currentXlabel;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button deleteAllButton;
+        private System.Windows.Forms.Label AddCurPosLabel;
+        private System.Windows.Forms.ComboBox stopRecordingComboBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox stopRecordingComboBox1;
+        private System.Windows.Forms.ComboBox startRecordingComboBox2;
+        private System.Windows.Forms.Label StartRecordingLabel;
+        private System.Windows.Forms.ComboBox startRecordingComboBox1;
+        private System.Windows.Forms.ComboBox captureMouseComboBox2;
+        private System.Windows.Forms.Label CaptureMouseLabel;
+        private System.Windows.Forms.ComboBox captureMouseComboBox1;
     }
 }
 

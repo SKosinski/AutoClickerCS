@@ -151,6 +151,7 @@ namespace AutoClickerCS
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(42, 29);
             this.button1.TabIndex = 0;
+            this.button1.Tag = "Special";
             this.button1.Text = "ESC";
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -160,6 +161,7 @@ namespace AutoClickerCS
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(33, 28);
             this.button2.TabIndex = 1;
+            this.button2.Tag = "Special";
             this.button2.Text = "F1";
             this.button2.UseVisualStyleBackColor = true;
             // 
@@ -169,6 +171,7 @@ namespace AutoClickerCS
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(33, 28);
             this.button3.TabIndex = 2;
+            this.button3.Tag = "Special";
             this.button3.Text = "F2";
             this.button3.UseVisualStyleBackColor = true;
             // 
@@ -178,6 +181,7 @@ namespace AutoClickerCS
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(33, 28);
             this.button4.TabIndex = 3;
+            this.button4.Tag = "Special";
             this.button4.Text = "F3";
             this.button4.UseVisualStyleBackColor = true;
             // 
@@ -187,6 +191,7 @@ namespace AutoClickerCS
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(33, 28);
             this.button5.TabIndex = 4;
+            this.button5.Tag = "Special";
             this.button5.Text = "F4";
             this.button5.UseVisualStyleBackColor = true;
             // 
@@ -196,6 +201,7 @@ namespace AutoClickerCS
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(33, 28);
             this.button6.TabIndex = 5;
+            this.button6.Tag = "Special";
             this.button6.Text = "F5";
             this.button6.UseVisualStyleBackColor = true;
             // 
@@ -205,6 +211,7 @@ namespace AutoClickerCS
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(33, 28);
             this.button7.TabIndex = 6;
+            this.button7.Tag = "Special";
             this.button7.Text = "F6";
             this.button7.UseVisualStyleBackColor = true;
             // 
@@ -214,6 +221,7 @@ namespace AutoClickerCS
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(33, 28);
             this.button8.TabIndex = 7;
+            this.button8.Tag = "Special";
             this.button8.Text = "F7";
             this.button8.UseVisualStyleBackColor = true;
             // 
@@ -223,6 +231,7 @@ namespace AutoClickerCS
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(33, 28);
             this.button9.TabIndex = 8;
+            this.button9.Tag = "Special";
             this.button9.Text = "F8";
             this.button9.UseVisualStyleBackColor = true;
             // 
@@ -232,6 +241,7 @@ namespace AutoClickerCS
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(33, 28);
             this.button10.TabIndex = 9;
+            this.button10.Tag = "Special";
             this.button10.Text = "F90";
             this.button10.UseVisualStyleBackColor = true;
             // 
@@ -241,6 +251,7 @@ namespace AutoClickerCS
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(43, 28);
             this.button11.TabIndex = 10;
+            this.button11.Tag = "Special";
             this.button11.Text = "F10";
             this.button11.UseVisualStyleBackColor = true;
             // 
@@ -250,6 +261,7 @@ namespace AutoClickerCS
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(43, 28);
             this.button12.TabIndex = 11;
+            this.button12.Tag = "Special";
             this.button12.Text = "F11";
             this.button12.UseVisualStyleBackColor = true;
             // 
@@ -259,6 +271,7 @@ namespace AutoClickerCS
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(43, 28);
             this.button13.TabIndex = 12;
+            this.button13.Tag = "Special";
             this.button13.Text = "F12";
             this.button13.UseVisualStyleBackColor = true;
             // 
@@ -269,6 +282,7 @@ namespace AutoClickerCS
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(43, 28);
             this.button14.TabIndex = 13;
+            this.button14.Tag = "Special";
             this.button14.Text = "PRTS";
             this.button14.UseVisualStyleBackColor = true;
             // 
@@ -279,6 +293,7 @@ namespace AutoClickerCS
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(43, 28);
             this.button15.TabIndex = 14;
+            this.button15.Tag = "Special";
             this.button15.Text = "SCR";
             this.button15.UseVisualStyleBackColor = true;
             // 
@@ -289,6 +304,7 @@ namespace AutoClickerCS
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(47, 28);
             this.button16.TabIndex = 15;
+            this.button16.Tag = "Special";
             this.button16.Text = "PAUS";
             this.button16.UseVisualStyleBackColor = true;
             // 
@@ -299,6 +315,7 @@ namespace AutoClickerCS
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(42, 28);
             this.button17.TabIndex = 16;
+            this.button17.Tag = "Special";
             this.button17.Text = "NUM";
             this.button17.UseVisualStyleBackColor = true;
             // 
@@ -309,6 +326,7 @@ namespace AutoClickerCS
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(46, 28);
             this.button18.TabIndex = 17;
+            this.button18.Tag = "Special";
             this.button18.Text = "*";
             this.button18.UseVisualStyleBackColor = true;
             // 
@@ -319,6 +337,7 @@ namespace AutoClickerCS
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(46, 28);
             this.button19.TabIndex = 17;
+            this.button19.Tag = "Special";
             this.button19.Text = "/";
             this.button19.UseVisualStyleBackColor = true;
             // 
@@ -329,6 +348,7 @@ namespace AutoClickerCS
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(40, 28);
             this.button20.TabIndex = 18;
+            this.button20.Tag = "Special";
             this.button20.Text = "N-";
             this.button20.UseVisualStyleBackColor = true;
             // 
@@ -339,6 +359,7 @@ namespace AutoClickerCS
             this.button21.Name = "button21";
             this.button21.Size = new System.Drawing.Size(40, 62);
             this.button21.TabIndex = 22;
+            this.button21.Tag = "Special";
             this.button21.Text = "N+";
             this.button21.UseVisualStyleBackColor = true;
             // 
@@ -409,6 +430,7 @@ namespace AutoClickerCS
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(40, 62);
             this.button29.TabIndex = 30;
+            this.button29.Tag = "Special";
             this.button29.Text = "NEnter";
             this.button29.UseVisualStyleBackColor = true;
             // 
@@ -598,6 +620,7 @@ namespace AutoClickerCS
             this.button47.Name = "button47";
             this.button47.Size = new System.Drawing.Size(39, 28);
             this.button47.TabIndex = 47;
+            this.button47.Tag = "Special";
             this.button47.Text = "BCKSP";
             this.button47.UseVisualStyleBackColor = true;
             // 
@@ -608,6 +631,7 @@ namespace AutoClickerCS
             this.button48.Name = "button48";
             this.button48.Size = new System.Drawing.Size(39, 62);
             this.button48.TabIndex = 61;
+            this.button48.Tag = "Special";
             this.button48.Text = "Enter";
             this.button48.UseVisualStyleBackColor = true;
             // 
@@ -738,6 +762,7 @@ namespace AutoClickerCS
             this.button61.Name = "button61";
             this.button61.Size = new System.Drawing.Size(34, 28);
             this.button61.TabIndex = 48;
+            this.button61.Tag = "Special";
             this.button61.Text = "TAB";
             this.button61.UseVisualStyleBackColor = true;
             // 
@@ -868,6 +893,7 @@ namespace AutoClickerCS
             this.button74.Name = "button74";
             this.button74.Size = new System.Drawing.Size(42, 28);
             this.button74.TabIndex = 62;
+            this.button74.Tag = "Special";
             this.button74.Text = "CAPS";
             this.button74.UseVisualStyleBackColor = true;
             // 
@@ -1068,6 +1094,7 @@ namespace AutoClickerCS
             this.button89.Name = "button89";
             this.button89.Size = new System.Drawing.Size(47, 28);
             this.button89.TabIndex = 103;
+            this.button89.Tag = "Special";
             this.button89.Text = "PGUP";
             this.button89.UseVisualStyleBackColor = true;
             // 
@@ -1078,6 +1105,7 @@ namespace AutoClickerCS
             this.button90.Name = "button90";
             this.button90.Size = new System.Drawing.Size(43, 28);
             this.button90.TabIndex = 102;
+            this.button90.Tag = "Special";
             this.button90.Text = "HOME";
             this.button90.UseVisualStyleBackColor = true;
             // 
@@ -1088,6 +1116,7 @@ namespace AutoClickerCS
             this.button91.Name = "button91";
             this.button91.Size = new System.Drawing.Size(43, 28);
             this.button91.TabIndex = 101;
+            this.button91.Tag = "Special";
             this.button91.Text = "INS";
             this.button91.UseVisualStyleBackColor = true;
             // 
@@ -1098,6 +1127,7 @@ namespace AutoClickerCS
             this.button92.Name = "button92";
             this.button92.Size = new System.Drawing.Size(47, 28);
             this.button92.TabIndex = 106;
+            this.button92.Tag = "Special";
             this.button92.Text = "PGDN";
             this.button92.UseVisualStyleBackColor = true;
             // 
@@ -1108,6 +1138,7 @@ namespace AutoClickerCS
             this.button93.Name = "button93";
             this.button93.Size = new System.Drawing.Size(43, 28);
             this.button93.TabIndex = 105;
+            this.button93.Tag = "Special";
             this.button93.Text = "END";
             this.button93.UseVisualStyleBackColor = true;
             // 
@@ -1118,6 +1149,7 @@ namespace AutoClickerCS
             this.button94.Name = "button94";
             this.button94.Size = new System.Drawing.Size(43, 28);
             this.button94.TabIndex = 104;
+            this.button94.Tag = "Special";
             this.button94.Text = "DEL";
             this.button94.UseVisualStyleBackColor = true;
             // 

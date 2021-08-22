@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AutoClickerCS
 {
@@ -27,15 +28,16 @@ namespace AutoClickerCS
         //Start autoclicker
         public void Start()
         {
-            if (!running)
-            {
-                if (cancelled)
-                    cancelled = false;
-                running = true;
-                AC = new Thread(Run);
-                AC.Start();
-            }
-            autoClickerForm.ChangeRunningLayout();
+            SendKeys.Send(165.ToString());
+            //if (!running)
+            //{
+            //    if (cancelled)
+            //        cancelled = false;
+            //    running = true;
+            //    AC = new Thread(Run);
+            //    AC.Start();
+            //}
+            //autoClickerForm.ChangeRunningLayout();
         }
 
         //stop/cancel autoclicker
@@ -318,6 +320,104 @@ namespace AutoClickerCS
                                             InputSender.ClickKey((ushort)keyboardKeyCode);
                                             break;
                                     }
+                                }
+                                break;
+                            case "Time":
+                                Thread.Sleep(Convert.ToInt32(splitCommand[1]));
+                                break;
+                        }
+
+                        if (cancelled)
+                            return;
+                    }
+                }
+
+                if (cancelled)
+                    return;
+
+                if (autoClickerForm.CheckInfiniteIntervals()) //run forever if infinite intervals checked
+                    intervals++;
+                else
+                {
+                    intervals = tmpIntervals;
+                }
+            }
+            Stop();
+        }
+        private void Run2()
+        {
+            int tmpIntervals = intervals;
+
+            for (int i = 0; i < intervals; i++)
+            {
+                if (cancelled)
+                    return;
+                autoClickerForm.UpdateFormText(i + 1);
+
+                // More about extended keys -> https://www.win.tue.nl/~aeb/linux/kbd/scancodes-6.html#microsoft
+                //// Scancodes -> https://www.win.tue.nl/~aeb/linux/kbd/scancodes-1.html
+
+                foreach (string command in commandCreator.commands) //we cycle through every command
+                {
+                    if (cancelled)
+                        return;
+
+                    char[] separators = { ' ', ';' };
+
+                    string[] splitCommand = command.Split(separators);
+
+                    int repeat = 1;
+
+                    if (splitCommand[0] != "Time") //if splitCommand[0] = time, the instruction will not be repeated
+                    {
+                        repeat = Convert.ToInt32(splitCommand[splitCommand.Length - 1]);
+                    }
+
+                    for (int j = 0; j < repeat; j++) //number of key repeat is at the end of the string
+                    {
+                        //switch based on each word of command
+                        switch (splitCommand[0])
+                        {
+                            case "Mouse":
+                                switch (splitCommand[1])
+                                {
+                                    case "Move":
+                                        InputSender.SendMouseInput(new InputSender.MouseInput[]
+                                        {
+                                        new InputSender.MouseInput
+                                        {
+                                            dx = Convert.ToInt32(splitCommand[2]),
+                                            dy = Convert.ToInt32(splitCommand[3]),
+                                            dwFlags = (uint)InputSender.MouseEventF.Move
+                                        }
+                                        });
+                                        break;
+                                    case "SetPosition":
+                                        InputSender.SetCursorPosition(Convert.ToInt32(splitCommand[2]), Convert.ToInt32(splitCommand[3]));
+                                        break;
+                                    default:
+                                        InputSender.MouseEventF mouseKeyCode = (InputSender.MouseEventF)Enum.Parse(typeof(InputSender.MouseEventF), splitCommand[1]);
+                                        InputSender.SendMouseInput(new InputSender.MouseInput[]
+                                        {
+                                        new InputSender.MouseInput
+                                        {
+                                            dwFlags = (uint)mouseKeyCode
+                                        }
+                                        });
+                                        break;
+                                }
+                                break;
+
+                            case "Keyboard":
+                                string key = splitCommand[2];
+                                switch (splitCommand[1])
+                                {
+                                    case "Basic":
+                                        SendKeys.Send(key);
+                                        break;
+                                    case "Special":
+                                        SendKeys.Send("{" + key + "}");
+                                        break;
                                 }
                                 break;
                             case "Time":
